@@ -90,18 +90,27 @@ namespace Api.Service.Services.User
 
         private string CreateToken(ClaimsIdentity identity, DateTime createDate, DateTime experationDate, JwtSecurityTokenHandler handler)
         {
-            var securityToken = handler.CreateToken(new SecurityTokenDescriptor
+            try
             {
-                Issuer = tokenConfigurations.Issuer,
-                Audience = tokenConfigurations.Audience,
-                SigningCredentials = signingConfigurations.SigningCredentials,
-                Subject = identity,
-                NotBefore = createDate,
-                Expires = experationDate
-            });
+                var securityToken = handler.CreateToken(new SecurityTokenDescriptor
+                {
+                    Issuer = tokenConfigurations.Issuer,
+                    Audience = tokenConfigurations.Audience,
+                    SigningCredentials = signingConfigurations.SigningCredentials,
+                    Subject = identity,
+                    NotBefore = createDate,
+                    Expires = experationDate
+                });
 
-            var token = handler.WriteToken(securityToken);
-            return token;
+                var token = handler.WriteToken(securityToken);
+                return token;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
         }
 
     }
