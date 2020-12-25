@@ -7,27 +7,14 @@
   "targets": {
     ".NETCoreApp,Version=v5.0": {
       "Api.Data/1.0.0": {
-        "dependencies": {
-          "Api.Domain": "1.0.0"
-        },
         "runtime": {
           "Api.Data.dll": {}
-        }
-      },
-      "Api.Domain/1.0.0": {
-        "runtime": {
-          "Api.Domain.dll": {}
         }
       }
     }
   },
   "libraries": {
     "Api.Data/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Api.Domain/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
