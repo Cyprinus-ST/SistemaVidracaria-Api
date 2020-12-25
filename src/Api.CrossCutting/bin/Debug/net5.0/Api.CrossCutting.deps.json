@@ -1,0 +1,65 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "Api.CrossCutting/1.0.0": {
+        "dependencies": {
+          "Api.Data": "1.0.0",
+          "Api.Domain": "1.0.0",
+          "Api.Service": "1.0.0"
+        },
+        "runtime": {
+          "Api.CrossCutting.dll": {}
+        }
+      },
+      "Api.Data/1.0.0": {
+        "dependencies": {
+          "Api.Domain": "1.0.0"
+        },
+        "runtime": {
+          "Api.Data.dll": {}
+        }
+      },
+      "Api.Domain/1.0.0": {
+        "runtime": {
+          "Api.Domain.dll": {}
+        }
+      },
+      "Api.Service/1.0.0": {
+        "dependencies": {
+          "Api.Data": "1.0.0",
+          "Api.Domain": "1.0.0"
+        },
+        "runtime": {
+          "Api.Service.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Api.CrossCutting/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Api.Data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Api.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Api.Service/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

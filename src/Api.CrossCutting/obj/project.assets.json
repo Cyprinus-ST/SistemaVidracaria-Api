@@ -1,0 +1,141 @@
+{
+  "version": 3,
+  "targets": {
+    "net5.0": {
+      "Api.Data/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "Api.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Api.Data.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Api.Data.dll": {}
+        }
+      },
+      "Api.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/Api.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Api.Domain.dll": {}
+        }
+      },
+      "Api.Service/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "Api.Data": "1.0.0",
+          "Api.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Api.Service.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Api.Service.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Api.Data/1.0.0": {
+      "type": "project",
+      "path": "../Api.Data/Api.Data.csproj",
+      "msbuildProject": "../Api.Data/Api.Data.csproj"
+    },
+    "Api.Domain/1.0.0": {
+      "type": "project",
+      "path": "../Api.Domain/Api.Domain.csproj",
+      "msbuildProject": "../Api.Domain/Api.Domain.csproj"
+    },
+    "Api.Service/1.0.0": {
+      "type": "project",
+      "path": "../Api.Service/Api.Service.csproj",
+      "msbuildProject": "../Api.Service/Api.Service.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net5.0": [
+      "Api.Data >= 1.0.0",
+      "Api.Domain >= 1.0.0",
+      "Api.Service >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\Lucas\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "D:\\Cyprinus\\SistemaVidracaria\\SistemaVidracaria-Api\\src\\Api.CrossCutting\\Api.CrossCutting.csproj",
+      "projectName": "Api.CrossCutting",
+      "projectPath": "D:\\Cyprinus\\SistemaVidracaria\\SistemaVidracaria-Api\\src\\Api.CrossCutting\\Api.CrossCutting.csproj",
+      "packagesPath": "C:\\Users\\Lucas\\.nuget\\packages\\",
+      "outputPath": "D:\\Cyprinus\\SistemaVidracaria\\SistemaVidracaria-Api\\src\\Api.CrossCutting\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\Lucas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 19.2.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net5.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\DevExpress 19.2\\Components\\System\\Components\\Packages": {},
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "projectReferences": {
+            "D:\\Cyprinus\\SistemaVidracaria\\SistemaVidracaria-Api\\src\\Api.Data\\Api.Data.csproj": {
+              "projectPath": "D:\\Cyprinus\\SistemaVidracaria\\SistemaVidracaria-Api\\src\\Api.Data\\Api.Data.csproj"
+            },
+            "D:\\Cyprinus\\SistemaVidracaria\\SistemaVidracaria-Api\\src\\Api.Domain\\Api.Domain.csproj": {
+              "projectPath": "D:\\Cyprinus\\SistemaVidracaria\\SistemaVidracaria-Api\\src\\Api.Domain\\Api.Domain.csproj"
+            },
+            "D:\\Cyprinus\\SistemaVidracaria\\SistemaVidracaria-Api\\src\\Api.Service\\Api.Service.csproj": {
+              "projectPath": "D:\\Cyprinus\\SistemaVidracaria\\SistemaVidracaria-Api\\src\\Api.Service\\Api.Service.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net5.0": {
+        "targetAlias": "net5.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

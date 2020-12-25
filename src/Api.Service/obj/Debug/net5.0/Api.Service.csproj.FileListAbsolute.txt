@@ -1,0 +1,17 @@
+D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.Service\bin\Debug\net5.0\Api.Service.deps.json
+D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.Service\bin\Debug\net5.0\Api.Service.dll
+D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.Service\bin\Debug\net5.0\ref\Api.Service.dll
+D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.Service\bin\Debug\net5.0\Api.Service.pdb
+D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.Service\bin\Debug\net5.0\Api.Data.dll
+D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.Service\bin\Debug\net5.0\Api.Domain.dll
+D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.Service\bin\Debug\net5.0\Api.Domain.pdb
+D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.Service\bin\Debug\net5.0\Api.Data.pdb
+D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.Service\obj\Debug\net5.0\Api.Service.csprojAssemblyReference.cache
+D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.Service\obj\Debug\net5.0\Api.Service.GeneratedMSBuildEditorConfig.editorconfig
+D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.Service\obj\Debug\net5.0\Api.Service.AssemblyInfoInputs.cache
+D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.Service\obj\Debug\net5.0\Api.Service.AssemblyInfo.cs
+D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.Service\obj\Debug\net5.0\Api.Service.csproj.CoreCompileInputs.cache
+D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.Service\obj\Debug\net5.0\Api.Service.csproj.CopyComplete
+D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.Service\obj\Debug\net5.0\Api.Service.dll
+D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.Service\obj\Debug\net5.0\ref\Api.Service.dll
+D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.Service\obj\Debug\net5.0\Api.Service.pdb
