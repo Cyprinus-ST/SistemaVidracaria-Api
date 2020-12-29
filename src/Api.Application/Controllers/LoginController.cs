@@ -16,17 +16,18 @@ namespace Api.Application.Controllers
         [HttpPost]
         public async Task<object> Login([FromBody] LoginDTO loginDTO,[FromServices] ILoginService service)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-            if (loginDTO == null)
-            {
-                return BadRequest();
-            }
 
             try
             {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+                if (loginDTO == null)
+                {
+                    return BadRequest();
+                }
+
                 var result = await service.DoLogin(loginDTO);
 
                 if (result != null)
