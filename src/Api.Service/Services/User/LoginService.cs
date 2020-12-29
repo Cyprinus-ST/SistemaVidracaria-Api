@@ -31,14 +31,43 @@ namespace Api.Service.Services.User
 
         public async Task<object> DoLogin(LoginDTO user)
         {
-
-            var baseUser = new UserEntity();
-
-            if (user != null && !string.IsNullOrWhiteSpace(user.Email))
+            try
             {
-                baseUser = await repository.FindByLoginAndPassword(user.Email,user.Senha); ;
+                var baseUser = new UserEntity();
 
-                if (baseUser == null)
+                if (user != null && !string.IsNullOrWhiteSpace(user.Email))
+                {
+                    baseUser = await repository.FindByLoginAndPassword(user.Email, user.Senha); ;
+
+                    if (baseUser == null)
+                    {
+                        return new
+                        {
+                            authenticated = false,
+                            message = "Falha ao autenticar"
+                        };
+                    }
+                    else
+                    {
+                        ClaimsIdentity identity = new ClaimsIdentity(
+                            new GenericIdentity(user.Email),
+                            new[]
+                            {
+                            new Claim(JwtRegisteredClaimNames.Jti,Guid.NewGuid().ToString()),
+                            new Claim(JwtRegisteredClaimNames.UniqueName, user.Email)
+                            }
+                         );
+
+                        DateTime createDate = DateTime.Now;
+                        DateTime experationDate = createDate + TimeSpan.FromSeconds(tokenConfigurations.Seconds);
+
+                        var handler = new JwtSecurityTokenHandler();
+                        string token = CreateToken(identity, createDate, experationDate, handler);
+                        return SucessObject(createDate, experationDate, token, user);
+
+                    }
+                }
+                else
                 {
                     return new
                     {
@@ -46,34 +75,12 @@ namespace Api.Service.Services.User
                         message = "Falha ao autenticar"
                     };
                 }
-                else
-                {
-                    ClaimsIdentity identity = new ClaimsIdentity(
-                        new GenericIdentity(user.Email),
-                        new[]
-                        {
-                            new Claim(JwtRegisteredClaimNames.Jti,Guid.NewGuid().ToString()),
-                            new Claim(JwtRegisteredClaimNames.UniqueName, user.Email)
-                        }
-                     );
-
-                    DateTime createDate = DateTime.Now;
-                    DateTime experationDate = createDate + TimeSpan.FromSeconds(tokenConfigurations.Seconds);
-
-                    var handler = new JwtSecurityTokenHandler();
-                    string token = CreateToken(identity, createDate, experationDate, handler);
-                    return SucessObject(createDate, experationDate, token, user);
-
-                }
             }
-            else
+            catch (Exception e)
             {
-                return new
-                {
-                    authenticated = false,
-                    message = "Falha ao autenticar"
-                };
+                throw;
             }
+
         }
         private object SucessObject(DateTime createDate, DateTime expirationDate, string token, LoginDTO user)
         {

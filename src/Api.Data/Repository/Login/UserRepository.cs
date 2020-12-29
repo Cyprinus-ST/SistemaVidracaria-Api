@@ -2,6 +2,7 @@
 using Api.Domain.Entities.User;
 using Api.Domain.Interfaces.Repository;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Threading.Tasks;
 
 namespace Api.Data.Repository.Login
@@ -16,7 +17,14 @@ namespace Api.Data.Repository.Login
 
         public async Task<UserEntity> FindByLoginAndPassword(string email, string senha)
         {
-            return await _dataset.FirstOrDefaultAsync(u => u.Email.Equals(email) && u.Senha.Equals(senha));
+            try
+            {
+                return await _dataset.FirstOrDefaultAsync(u => u.Email.Equals(email) && u.Senha.Equals(senha));
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }
