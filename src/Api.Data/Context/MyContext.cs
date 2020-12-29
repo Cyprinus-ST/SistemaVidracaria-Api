@@ -21,9 +21,9 @@ namespace Api.Data.Context
                 new UserEntity
                 {
                     Id = Guid.NewGuid(),
-                    Nome = "Administrador",
+                    Name = "Administrador",
                     Email = "lucas.vilas@email.com",
-                    Senha = "123456",
+                    Password = "123456",
                     CreateAt = DateTime.Now,
                     UpdateAt = DateTime.Now,
                 }

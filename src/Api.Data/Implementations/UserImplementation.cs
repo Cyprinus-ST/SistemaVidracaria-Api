@@ -19,7 +19,7 @@ namespace Api.Data.Implementations
 
         public async Task<UserEntity> FindByLoginAndPassword(string email, string senha)
         {
-            return await _dataset.FirstOrDefaultAsync(u => u.Email.Equals(email) && u.Senha.Equals(senha));
+            return await _dataset.FirstOrDefaultAsync(u => u.Email.Equals(email) && u.Password.Equals(senha));
         }
     }
 }
