@@ -56,7 +56,7 @@ namespace Api.Data.Mapping
                 .HasMaxLength(150);
 
             builder.Property(u => u.Phone)
-                .HasMaxLength(11);
+                .HasMaxLength(12);
 
             builder.Property(u => u.TokenPassword)
                 .HasMaxLength(100);

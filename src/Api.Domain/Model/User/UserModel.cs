@@ -1,11 +1,17 @@
-﻿namespace Api.Domain.Entities.User
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Api.Domain.Model.User
 {
-    public class UserEntity : BaseEntity
+    public class UserModel : BaseModel
     {
         public string Name { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        public string CPF { get; set;}
+        public string CPF { get; set; }
         public string PathAvatar { get; set; }
         public string Type { get; set; }
         public string Street { get; set; }
@@ -17,6 +23,5 @@
         public string Complement { get; set; }
         public string Phone { get; set; }
         public string TokenPassword { get; set; }
-
     }
 }

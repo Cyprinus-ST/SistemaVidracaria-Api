@@ -1,3 +1,9 @@
+D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.Application\obj\Debug\net5.0\Api.Application.csprojAssemblyReference.cache
+D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.Application\obj\Debug\net5.0\Api.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.Application\obj\Debug\net5.0\Api.Application.AssemblyInfoInputs.cache
+D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.Application\obj\Debug\net5.0\Api.Application.AssemblyInfo.cs
+D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.Application\obj\Debug\net5.0\Api.Application.csproj.CoreCompileInputs.cache
+D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.Application\obj\Debug\net5.0\Api.Application.MvcApplicationPartsAssemblyInfo.cache
 D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.Application\bin\Debug\net5.0\appsettings.Development.json
 D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.Application\bin\Debug\net5.0\appsettings.json
 D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.Application\bin\Debug\net5.0\Api.Application.exe
@@ -50,13 +56,6 @@ D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.Application\bin\Debu
 D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.Application\bin\Debug\net5.0\Api.Service.pdb
 D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.Application\bin\Debug\net5.0\Api.Domain.pdb
 D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.Application\bin\Debug\net5.0\Api.Data.pdb
-D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.Application\obj\Debug\net5.0\Api.Application.csprojAssemblyReference.cache
-D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.Application\obj\Debug\net5.0\Api.Application.GeneratedMSBuildEditorConfig.editorconfig
-D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.Application\obj\Debug\net5.0\Api.Application.AssemblyInfoInputs.cache
-D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.Application\obj\Debug\net5.0\Api.Application.AssemblyInfo.cs
-D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.Application\obj\Debug\net5.0\Api.Application.csproj.CoreCompileInputs.cache
-D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.Application\obj\Debug\net5.0\Api.Application.MvcApplicationPartsAssemblyInfo.cs
-D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.Application\obj\Debug\net5.0\Api.Application.MvcApplicationPartsAssemblyInfo.cache
 D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.Application\obj\Debug\net5.0\staticwebassets\Api.Application.StaticWebAssets.Manifest.cache
 D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.Application\obj\Debug\net5.0\staticwebassets\Api.Application.StaticWebAssets.xml
 D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.Application\obj\Debug\net5.0\scopedcss\bundle\Api.Application.styles.css
