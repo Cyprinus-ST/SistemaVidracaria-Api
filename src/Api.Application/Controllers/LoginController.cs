@@ -1,4 +1,4 @@
-﻿using Api.Domain.DTO.Login;
+﻿using Api.Domain.DTO.User;
 using Api.Domain.Interfaces.Services.Login;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -14,9 +14,9 @@ namespace Api.Application.Controllers
     {
         [AllowAnonymous]
         [HttpPost]
-        public async Task<object> Login([FromBody] LoginDTO loginDTO,[FromServices] ILoginService service)
+        [Route("Login")]
+        public async Task<object> Login([FromBody] UserDTO loginDTO,[FromServices] ILoginService service)
         {
-
             try
             {
                 if (!ModelState.IsValid)
@@ -43,6 +43,37 @@ namespace Api.Application.Controllers
             catch (Exception e)
             {
 
+                return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
+            }
+        }
+
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("Register")]
+        public async Task<object> Register([FromBody] UserCreateDTO userCreateDTO, [FromServices] ILoginService service)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                var result = await service.CreateUser(userCreateDTO);
+
+                if (result != null)
+                {
+                    return Ok(result);
+                }
+                else
+                {
+                    return NotFound();
+                }
+
+
+            }
+            catch (Exception e)
+            {
                 return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
             }
         }

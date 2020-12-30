@@ -25,6 +25,22 @@ namespace Api.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("CPF")
+                        .HasMaxLength(14)
+                        .HasColumnType("nvarchar(14)");
+
+                    b.Property<string>("City")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Complement")
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
+
+                    b.Property<string>("Country")
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
+
                     b.Property<DateTime?>("CreateAt")
                         .HasColumnType("datetime2");
 
@@ -32,13 +48,47 @@ namespace Api.Data.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<string>("Nome")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(60)
                         .HasColumnType("nvarchar(60)");
 
-                    b.Property<string>("Senha")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("Neighborhood")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Number")
+                        .HasMaxLength(15)
+                        .HasColumnType("nvarchar(15)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("PathAvatar")
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Phone")
+                        .HasMaxLength(12)
+                        .HasColumnType("nvarchar(12)");
+
+                    b.Property<string>("State")
+                        .HasMaxLength(2)
+                        .HasColumnType("nvarchar(2)");
+
+                    b.Property<string>("Street")
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
+
+                    b.Property<string>("TokenPassword")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Type")
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
 
                     b.Property<DateTime?>("UpdateAt")
                         .HasColumnType("datetime2");
@@ -54,12 +104,12 @@ namespace Api.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("4648486c-f57a-4a6f-9ba0-226f9ffb289d"),
-                            CreateAt = new DateTime(2020, 12, 25, 18, 45, 39, 973, DateTimeKind.Local).AddTicks(9788),
+                            Id = new Guid("6baa032b-23cb-4fc3-9418-04b08cf2067c"),
+                            CreateAt = new DateTime(2020, 12, 29, 21, 43, 41, 859, DateTimeKind.Local).AddTicks(222),
                             Email = "lucas.vilas@email.com",
-                            Nome = "Administrador",
-                            Senha = "123456",
-                            UpdateAt = new DateTime(2020, 12, 25, 18, 45, 39, 975, DateTimeKind.Local).AddTicks(297)
+                            Name = "Administrador",
+                            Password = "123456",
+                            UpdateAt = new DateTime(2020, 12, 29, 21, 43, 41, 860, DateTimeKind.Local).AddTicks(630)
                         });
                 });
 #pragma warning restore 612, 618

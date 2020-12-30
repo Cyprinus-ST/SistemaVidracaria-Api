@@ -19,7 +19,7 @@ namespace Api.Data.Repository.Login
         {
             try
             {
-                return await _dataset.FirstOrDefaultAsync(u => u.Email.Equals(email) && u.Senha.Equals(senha));
+                return await _dataset.FirstOrDefaultAsync(u => u.Email.Equals(email) && u.Password.Equals(senha));
             }
             catch (Exception)
             {

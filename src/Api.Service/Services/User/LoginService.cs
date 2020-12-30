@@ -1,8 +1,10 @@
-﻿using Api.Domain.DTO.Login;
+﻿using Api.Domain.DTO.User;
 using Api.Domain.Entities.User;
 using Api.Domain.Interfaces.Repository;
 using Api.Domain.Interfaces.Services.Login;
+using Api.Domain.Model.User;
 using Api.Domain.Security;
+using AutoMapper;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -18,18 +20,21 @@ namespace Api.Service.Services.User
         private IUserRepository repository;
         public SigningConfigurations signingConfigurations;
         public TokenConfigurations tokenConfigurations;
+        private readonly IMapper mapper;
 
         private IConfiguration configuration { get; }
 
-        public LoginService(IUserRepository _repository, SigningConfigurations _signingConfigurations, TokenConfigurations _tokenConfigurations, IConfiguration _configuration)
+        public LoginService(IUserRepository _repository, SigningConfigurations _signingConfigurations, TokenConfigurations _tokenConfigurations, IConfiguration _configuration, IMapper _mapper)
         {
             repository = _repository;
             signingConfigurations = _signingConfigurations;
             tokenConfigurations = _tokenConfigurations;
             configuration = _configuration;
+            mapper = _mapper;
+
         }
 
-        public async Task<object> DoLogin(LoginDTO user)
+        public async Task<object> DoLogin(UserDTO user)
         {
             try
             {
@@ -82,7 +87,29 @@ namespace Api.Service.Services.User
             }
 
         }
-        private object SucessObject(DateTime createDate, DateTime expirationDate, string token, LoginDTO user)
+
+        public async Task<object> CreateUser(UserCreateDTO newUser)
+        {
+            try
+            {
+                var model = mapper.Map<UserModel>(newUser);
+                var entity = mapper.Map<UserEntity>(model);
+                var result = await repository.InsertAsync(entity);
+
+                return new
+                {
+                    user = result,
+                    message = "Usuário cadastrado com sucesso!"
+                };
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private object SucessObject(DateTime createDate, DateTime expirationDate, string token, UserDTO user)
         {
             return new
             {

@@ -1,3 +1,7 @@
+D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.CrossCutting\obj\Debug\net5.0\Api.CrossCutting.GeneratedMSBuildEditorConfig.editorconfig
+D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.CrossCutting\obj\Debug\net5.0\Api.CrossCutting.AssemblyInfoInputs.cache
+D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.CrossCutting\obj\Debug\net5.0\Api.CrossCutting.AssemblyInfo.cs
+D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.CrossCutting\obj\Debug\net5.0\Api.CrossCutting.csproj.CoreCompileInputs.cache
 D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.CrossCutting\bin\Debug\net5.0\Api.CrossCutting.deps.json
 D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.CrossCutting\bin\Debug\net5.0\Api.CrossCutting.dll
 D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.CrossCutting\bin\Debug\net5.0\ref\Api.CrossCutting.dll
@@ -9,10 +13,6 @@ D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.CrossCutting\bin\Deb
 D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.CrossCutting\bin\Debug\net5.0\Api.Data.pdb
 D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.CrossCutting\bin\Debug\net5.0\Api.Domain.pdb
 D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.CrossCutting\obj\Debug\net5.0\Api.CrossCutting.csprojAssemblyReference.cache
-D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.CrossCutting\obj\Debug\net5.0\Api.CrossCutting.GeneratedMSBuildEditorConfig.editorconfig
-D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.CrossCutting\obj\Debug\net5.0\Api.CrossCutting.AssemblyInfoInputs.cache
-D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.CrossCutting\obj\Debug\net5.0\Api.CrossCutting.AssemblyInfo.cs
-D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.CrossCutting\obj\Debug\net5.0\Api.CrossCutting.csproj.CoreCompileInputs.cache
 D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.CrossCutting\obj\Debug\net5.0\Api.CrossCutting.csproj.CopyComplete
 D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.CrossCutting\obj\Debug\net5.0\Api.CrossCutting.dll
 D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.CrossCutting\obj\Debug\net5.0\ref\Api.CrossCutting.dll
