@@ -92,15 +92,27 @@ namespace Api.Service.Services.User
         {
             try
             {
-                var model = mapper.Map<UserModel>(newUser);
-                var entity = mapper.Map<UserEntity>(model);
-                var result = await repository.InsertAsync(entity);
-
-                return new
+                var hasUser = await repository.FindByEmail(newUser.Email);
+                if(hasUser == null)
                 {
-                    user = result,
-                    message = "Usuário cadastrado com sucesso!"
-                };
+                    var model = mapper.Map<UserModel>(newUser);
+                    var entity = mapper.Map<UserEntity>(model);
+                    var result = await repository.InsertAsync(entity);
+
+                    return new
+                    {
+                        user = result,
+                        message = "Usuário cadastrado com sucesso!"
+                    };
+                }
+                else
+                {
+                    return new
+                    {
+                        messagge = "E-mail já cadastrado na nossa base de dados!"
+                    };
+                }
+    
             }
             catch (Exception)
             {

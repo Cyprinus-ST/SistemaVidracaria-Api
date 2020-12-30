@@ -6,5 +6,6 @@ namespace Api.Domain.Interfaces.Repository
     public interface IUserRepository : IRepository<UserEntity>
     {
         Task<UserEntity> FindByLoginAndPassword(string email,string senha);
+        Task<UserEntity> FindByEmail(string email);
     }
 }
