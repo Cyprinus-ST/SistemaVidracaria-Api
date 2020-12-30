@@ -17,6 +17,18 @@ namespace Api.Data.Implementations
             _dataset = context.Set<UserEntity>();
         }
 
+        public async Task<UserEntity> FindByEmail(string email)
+        {
+            try
+            {
+                return await _dataset.FirstOrDefaultAsync(u => u.Email.Equals(email));
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+
         public async Task<UserEntity> FindByLoginAndPassword(string email, string senha)
         {
             return await _dataset.FirstOrDefaultAsync(u => u.Email.Equals(email) && u.Password.Equals(senha));
