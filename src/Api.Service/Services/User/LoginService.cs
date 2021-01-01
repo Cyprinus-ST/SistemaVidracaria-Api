@@ -42,14 +42,14 @@ namespace Api.Service.Services.User
 
                 if (user != null && !string.IsNullOrWhiteSpace(user.Email))
                 {
-                    baseUser = await repository.FindByLoginAndPassword(user.Email, user.Senha); ;
+                    baseUser = await repository.FindByLoginAndPassword(user.Email, user.Password); ;
 
                     if (baseUser == null)
                     {
                         return new
                         {
                             authenticated = false,
-                            message = "Falha ao autenticar"
+                            message = "E-mail ou senha inválidos!"
                         };
                     }
                     else
@@ -68,7 +68,10 @@ namespace Api.Service.Services.User
 
                         var handler = new JwtSecurityTokenHandler();
                         string token = CreateToken(identity, createDate, experationDate, handler);
-                        return SucessObject(createDate, experationDate, token, user);
+
+                        var userDTO = mapper.Map<UserDTO>(baseUser);
+
+                        return SucessObject(createDate, experationDate, token, userDTO);
 
                     }
                 }
@@ -95,6 +98,14 @@ namespace Api.Service.Services.User
                 var hasUser = await repository.FindByEmail(newUser.Email);
                 if(hasUser == null)
                 {
+                    if (!newUser.Type.Equals("admin") || !newUser.Type.Equals("user"))
+                    {
+                        return new
+                        {
+                            message = "Favor inserir um tipo de usuário válido!"
+                        }; 
+                    }
+
                     var model = mapper.Map<UserModel>(newUser);
                     var entity = mapper.Map<UserEntity>(model);
                     var result = await repository.InsertAsync(entity);
@@ -129,7 +140,7 @@ namespace Api.Service.Services.User
                 created = createDate.ToString("yyyy-MM-dd HH:mm:ss"),
                 expiration = expirationDate.ToString("yyyy-MM-dd HH:mm:ss"),
                 acessToken = token,
-                userName = user.Email,
+                user = user,
                 message = "Usuário Logado com sucesso!"
             };
         }

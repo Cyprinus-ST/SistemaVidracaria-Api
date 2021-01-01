@@ -65,3 +65,4 @@ D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.Application\obj\Debu
 D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.Application\obj\Debug\net5.0\ref\Api.Application.dll
 D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.Application\obj\Debug\net5.0\Api.Application.pdb
 D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.Application\obj\Debug\net5.0\Api.Application.genruntimeconfig.cache
+D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.Application\obj\Debug\net5.0\Api.Application.MvcApplicationPartsAssemblyInfo.cs

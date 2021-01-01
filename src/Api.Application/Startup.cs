@@ -28,6 +28,8 @@ namespace Api.Application
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors();
+
             ConfigureService.ConfigureDependenciesService(services);
             ConfigureRepository.ConfigureDependenciesRepository(services);
 
@@ -40,7 +42,7 @@ namespace Api.Application
             });
 
             IMapper mapper = config.CreateMapper();
-
+    
             services.AddSingleton(mapper);
 
             var signingConfigurations = new SigningConfigurations();
@@ -124,6 +126,12 @@ namespace Api.Application
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Api.Application v1"));
             }
+
+
+            app.UseCors(builder => builder
+                            .AllowAnyOrigin()
+                            .AllowAnyMethod()
+                            .AllowAnyHeader());
 
             app.UseRouting();
 
