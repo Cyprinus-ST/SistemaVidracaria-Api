@@ -136,7 +136,7 @@ namespace Api.Service.Services.User
                 {
                     return new
                     {
-                        messagge = "E-mail já cadastrado na nossa base de dados!"
+                        message = "E-mail já cadastrado na nossa base de dados!"
                     };
                 }
     
