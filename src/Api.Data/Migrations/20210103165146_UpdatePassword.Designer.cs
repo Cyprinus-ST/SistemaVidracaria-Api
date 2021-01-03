@@ -4,14 +4,16 @@ using Api.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Api.Data.Migrations
 {
     [DbContext(typeof(MyContext))]
-    partial class MyContextModelSnapshot : ModelSnapshot
+    [Migration("20210103165146_UpdatePassword")]
+    partial class UpdatePassword
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -63,8 +65,8 @@ namespace Api.Data.Migrations
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("PathAvatar")
                         .HasMaxLength(450)
@@ -104,12 +106,12 @@ namespace Api.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("b29951ea-fcdf-44a3-af18-e105940a100d"),
-                            CreateAt = new DateTime(2021, 1, 3, 14, 5, 6, 6, DateTimeKind.Local).AddTicks(8436),
+                            Id = new Guid("4b0a773e-1617-4da1-9387-5d1d1d363976"),
+                            CreateAt = new DateTime(2021, 1, 3, 13, 51, 45, 955, DateTimeKind.Local).AddTicks(8463),
                             Email = "lucas.vilas@email.com",
                             Name = "Administrador",
                             Password = "123456",
-                            UpdateAt = new DateTime(2021, 1, 3, 14, 5, 6, 7, DateTimeKind.Local).AddTicks(8355)
+                            UpdateAt = new DateTime(2021, 1, 3, 13, 51, 45, 956, DateTimeKind.Local).AddTicks(8557)
                         });
                 });
 #pragma warning restore 612, 618

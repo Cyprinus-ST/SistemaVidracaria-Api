@@ -4,12 +4,14 @@ using Api.Domain.Interfaces.Repository;
 using Api.Domain.Interfaces.Services.Login;
 using Api.Domain.Model.User;
 using Api.Domain.Security;
+using Api.Service.Utils;
 using AutoMapper;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Security.Principal;
 using System.Threading.Tasks;
 
@@ -36,12 +38,15 @@ namespace Api.Service.Services.User
 
         public async Task<object> DoLogin(UserDTO user)
         {
+            Cryptography crp = new Cryptography(SHA512.Create());
+
             try
             {
                 var baseUser = new UserEntity();
 
                 if (user != null && !string.IsNullOrWhiteSpace(user.Email))
                 {
+                    user.Password = crp.CriptografarSenha(user.Password);
                     baseUser = await repository.FindByLoginAndPassword(user.Email, user.Password); ;
 
                     if (baseUser == null)
@@ -71,7 +76,15 @@ namespace Api.Service.Services.User
 
                         var userDTO = mapper.Map<UserDTO>(baseUser);
 
-                        return SucessObject(createDate, experationDate, token, userDTO);
+                        return new
+                        {
+                            authenticated = true,
+                            created = createDate.ToString("yyyy-MM-dd HH:mm:ss"),
+                            expiration = experationDate.ToString("yyyy-MM-dd HH:mm:ss"),
+                            acessToken = token,
+                            user = userDTO,
+                            message = "Usuário Logado com sucesso!"
+                        };
 
                     }
                 }
@@ -93,12 +106,14 @@ namespace Api.Service.Services.User
 
         public async Task<object> CreateUser(UserCreateDTO newUser)
         {
+            Cryptography crp = new Cryptography(SHA512.Create());
+
             try
             {
                 var hasUser = await repository.FindByEmail(newUser.Email);
                 if(hasUser == null)
                 {
-                    if (!newUser.Type.Equals("admin") || !newUser.Type.Equals("user"))
+                    if (!newUser.Type.Equals("admin") && !newUser.Type.Equals("user"))
                     {
                         return new
                         {
@@ -107,6 +122,7 @@ namespace Api.Service.Services.User
                     }
 
                     var model = mapper.Map<UserModel>(newUser);
+                    model.Password = crp.CriptografarSenha(model.Password);
                     var entity = mapper.Map<UserEntity>(model);
                     var result = await repository.InsertAsync(entity);
 
@@ -130,19 +146,6 @@ namespace Api.Service.Services.User
 
                 throw;
             }
-        }
-
-        private object SucessObject(DateTime createDate, DateTime expirationDate, string token, UserDTO user)
-        {
-            return new
-            {
-                authenticated = true,
-                created = createDate.ToString("yyyy-MM-dd HH:mm:ss"),
-                expiration = expirationDate.ToString("yyyy-MM-dd HH:mm:ss"),
-                acessToken = token,
-                user = user,
-                message = "Usuário Logado com sucesso!"
-            };
         }
 
         private string CreateToken(ClaimsIdentity identity, DateTime createDate, DateTime experationDate, JwtSecurityTokenHandler handler)

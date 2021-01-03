@@ -26,7 +26,7 @@ namespace Api.Data.Mapping
 
             builder.Property(u => u.Password)
                 .IsRequired()
-                .HasMaxLength(20);
+                .HasMaxLength(150);
 
             builder.Property(u => u.PathAvatar)
                 .HasMaxLength(450);
