@@ -16,6 +16,7 @@ namespace Api.Domain.DTO.User
         public string CPF { get; set; }
         public string PathAvatar { get; set; }
         public string Type { get; set; }
+        public string CEP { get; set; }
         public string Street { get; set; }
         public string Neighborhood { get; set; }
         public string City { get; set; }

@@ -61,6 +61,8 @@ namespace Api.Data.Mapping
             builder.Property(u => u.TokenPassword)
                 .HasMaxLength(100);
 
+            builder.Property(u => u.CEP)
+                .HasMaxLength(20);
         }
     }
 }

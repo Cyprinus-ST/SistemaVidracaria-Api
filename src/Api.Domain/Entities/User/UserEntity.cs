@@ -17,6 +17,6 @@
         public string Complement { get; set; }
         public string Phone { get; set; }
         public string TokenPassword { get; set; }
-
+        public string CEP { get; set; }
     }
 }
