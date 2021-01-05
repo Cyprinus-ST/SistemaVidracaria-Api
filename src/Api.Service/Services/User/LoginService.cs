@@ -1,4 +1,5 @@
-﻿using Api.Domain.DTO.User;
+﻿using Api.Domain.DTO.Login;
+using Api.Domain.DTO.User;
 using Api.Domain.Entities.User;
 using Api.Domain.Interfaces.Repository;
 using Api.Domain.Interfaces.Services.Login;
@@ -36,7 +37,7 @@ namespace Api.Service.Services.User
 
         }
 
-        public async Task<object> DoLogin(UserDTO user)
+        public async Task<object> DoLogin(LoginDTO user)
         {
             Cryptography crp = new Cryptography(SHA512.Create());
 
@@ -173,6 +174,24 @@ namespace Api.Service.Services.User
 
         }
 
+        public async Task<object> GenerateTokenByEmail(string email)
+        {
+            var hasUser = await repository.FindByEmail(email);
+
+            if(hasUser == null)
+            {
+                return new
+                {
+                    message = "E-mail não encontrado"
+                };
+            }
+
+            hasUser.TokenPassword = Guid.NewGuid().ToString();
+
+            await repository.UpdateAsync(hasUser);
+
+            return hasUser.TokenPassword;
+        }
     }
 }
 

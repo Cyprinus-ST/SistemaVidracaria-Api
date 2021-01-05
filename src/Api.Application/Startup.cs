@@ -33,7 +33,7 @@ namespace Api.Application
             ConfigureService.ConfigureDependenciesService(services);
             ConfigureRepository.ConfigureDependenciesRepository(services);
 
-            //Configurando AutoMapper, responsável por converter as classes
+            //Configurando AutoMapper, responsï¿½vel por converter as classes
             var config = new AutoMapper.MapperConfiguration(c =>
             {
                 c.AddProfile(new DtoToModelProfile());
@@ -85,7 +85,7 @@ namespace Api.Application
                 c.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Version = "v1",
-                    Title = "API - Vidraçaria",
+                    Title = "API - Vidraï¿½aria",
                     Description = "Teste",
                     Contact = new OpenApiContact
                     {
