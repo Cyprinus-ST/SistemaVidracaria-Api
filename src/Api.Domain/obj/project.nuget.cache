@@ -1,13 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "9C7KzZ4+QgdJKY5qtEfNHm3scgGzh0+sdN0QZUYpOPWom9tuSs7f5axtinfkgvCNpQ+n+qNZLfe9kwVs68zxlQ==",
+  "dgSpecHash": "j5bss4DVnWMmBHiUrLfYuiSdpPALoe7FiFPKa/kYJdxn9+ROxxV95Qm9ZaMXbavQC6prAP2UKdTZkwmkGAMd2Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\DELL\\Desktop\\vidracaria\\SistemaVidracaria-Api\\src\\Api.Domain\\Api.Domain.csproj",
+  "projectFilePath": "D:\\Cyprinus\\SistemaVidracaria\\SistemaVidracaria-Api\\src\\Api.Domain\\Api.Domain.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\DELL\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
-    "C:\\Users\\DELL\\.nuget\\packages\\microsoft.identitymodel.logging\\6.8.0\\microsoft.identitymodel.logging.6.8.0.nupkg.sha512",
-    "C:\\Users\\DELL\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.8.0\\microsoft.identitymodel.tokens.6.8.0.nupkg.sha512",
-    "C:\\Users\\DELL\\.nuget\\packages\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512"
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\Lucas\\.nuget\\packages\\microsoft.identitymodel.logging\\6.8.0\\microsoft.identitymodel.logging.6.8.0.nupkg.sha512",
+    "C:\\Users\\Lucas\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.8.0\\microsoft.identitymodel.tokens.6.8.0.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512"
   ],
   "logs": []
 }
