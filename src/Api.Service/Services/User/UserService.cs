@@ -32,6 +32,7 @@ namespace Api.Service.Services.User
         /// <param name="user"></param>
         /// <returns>
         ///  message : Descrição da situação
+        ///  valid : Indica se foi possível realizar a ação do método ou não.
         /// </returns>
         public async Task<object> UpdateUser(UserDTO user)
         {
@@ -40,13 +41,44 @@ namespace Api.Service.Services.User
             try
             {
                 var model = mapper.Map<UserModel>(user);
+                var userOld = await repository.SelectAsync(model.Id);
+                string senhaPadrao = crp.CriptografarSenha("alterar_senha");
                 model.Password = crp.CriptografarSenha(model.Password);
+
+                if (model.Password == senhaPadrao)
+                    model.Password = userOld.Password;
+
+                var email = await repository.FindByEmail(user.Email);
+
+                if(email != null && email.Email != userOld.Email)
+                {
+                    return new
+                    {
+                        valid = false,
+                        message = "Não foi possível alterar o cadastro do usuário, pois o e-mail fornecido já está cadastrado na nossa base de dados"
+                    };
+                }
+
                 var entity = mapper.Map<UserEntity>(model);
                 var data = await repository.UpdateAsync(entity);
-                return new
+
+                if(data == null)
                 {
-                    message = "Usuário alterado com sucesso!"
-                };
+                    return new
+                    {
+                        valid = false,
+                        message = "Não foi possível alterar o cadastro do usuário, ocorreu um erro interno, favor tentar novamente mais tarde!"
+                    };
+                }
+                else
+                {
+                    return new
+                    {
+                        valid = true,
+                        message = "Usuário alterado com sucesso!"
+                    };
+                }
+
             }
             catch (Exception ex)
             {
