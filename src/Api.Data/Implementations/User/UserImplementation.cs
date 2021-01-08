@@ -33,5 +33,10 @@ namespace Api.Data.Implementations
         {
             return await _dataset.FirstOrDefaultAsync(u => u.Email.Equals(email) && u.Password.Equals(senha));
         }
+
+        public async Task<UserEntity> FindByToken(string token)
+        {
+            return await _dataset.FirstOrDefaultAsync(u => u.TokenPassword.Equals(token));
+        }
     }
 }

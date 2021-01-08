@@ -1,5 +1,6 @@
 ﻿using Api.Domain.DTO.Login;
 using Api.Domain.DTO.User;
+using System;
 using System.Threading.Tasks;
 
 namespace Api.Domain.Interfaces.Services.Login
@@ -8,6 +9,8 @@ namespace Api.Domain.Interfaces.Services.Login
     {
         Task<object> DoLogin(LoginDTO user);
         Task<object> CreateUser(UserCreateDTO newUser);
-        Task<object> GenerateTokenByEmail(string email);
+        Task<ForgotPasswordOutput> GenerateTokenByEmail(string email);
+        Task<object> RecoveryTokenIsValid(string token);
+        Task<bool> UpdatePassword(Guid userId, string password);
     }
 }

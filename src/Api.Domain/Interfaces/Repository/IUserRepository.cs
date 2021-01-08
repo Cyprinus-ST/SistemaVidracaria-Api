@@ -7,5 +7,7 @@ namespace Api.Domain.Interfaces.Repository
     {
         Task<UserEntity> FindByLoginAndPassword(string email,string senha);
         Task<UserEntity> FindByEmail(string email);
+
+        Task<UserEntity> FindByToken(string token);
     }
 }

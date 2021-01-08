@@ -21,4 +21,3 @@ D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.Domain\obj\Debug\net
 D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.Domain\obj\Debug\net5.0\Api.Domain.dll
 D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.Domain\obj\Debug\net5.0\ref\Api.Domain.dll
 D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.Domain\obj\Debug\net5.0\Api.Domain.pdb
-D:\Cyprinus\SistemaVidracaria\SistemaVidracaria-Api\src\Api.Domain\obj\Debug\net5.0\Api.Domain.csprojAssemblyReference.cache

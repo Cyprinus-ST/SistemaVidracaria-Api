@@ -5,6 +5,7 @@ using Api.Domain.Interfaces.Repository;
 using Api.Domain.Interfaces.Services.Login;
 using Api.Domain.Model.User;
 using Api.Domain.Security;
+using Api.Domain.Utils;
 using Api.Service.Utils;
 using AutoMapper;
 using Microsoft.Extensions.Configuration;
@@ -174,23 +175,89 @@ namespace Api.Service.Services.User
 
         }
 
-        public async Task<object> GenerateTokenByEmail(string email)
+        public async Task<ForgotPasswordOutput> GenerateTokenByEmail(string email)
         {
-            var hasUser = await repository.FindByEmail(email);
+            try
+            {
+                var hasUser = await repository.FindByEmail(email);
 
-            if(hasUser == null)
+                if (hasUser == null)
+                {
+                    throw new Exception("Email não cadastrado na base de dados");
+                }
+
+                hasUser.TokenPassword = Guid.NewGuid().ToString();
+
+                await repository.UpdateAsync(hasUser);
+
+                var bodyEmail = new ForgotPassworBodyEmail(hasUser.TokenPassword);
+                string FORGOT_PASSWORD_BODY = bodyEmail.FORGOT_PASSWORD_BODY;
+                const string subject = "Redefinir sua senha";
+
+                var smtpClient = new SmptClient();
+                smtpClient.SendEmail(email, null, null, subject, FORGOT_PASSWORD_BODY);
+
+                return new ForgotPasswordOutput
+                {
+                    sentEmail = true,
+                    message = "Email de recuperação enviado!! Verifique sua caixa de email."
+                };
+
+            } catch (Exception e)
+            {
+                return new ForgotPasswordOutput
+                {
+                    sentEmail = false,
+                    message = e.Message
+                };
+            }
+        }
+
+        public async Task<object> RecoveryTokenIsValid(string token)
+        {
+            try
+            {
+                var hasUser = await repository.FindByToken(token);
+
+                if (hasUser == null)
+                {
+                    throw new Exception("Token Inválido");
+                }
+
+                return new RecoveryTokenIsValidOutput
+                {
+                    recoveryTokenIsValid = true,
+                    userId = hasUser.Id
+                };
+
+            } catch(Exception e)
             {
                 return new
                 {
-                    message = "E-mail não encontrado"
+                    recoveryTokenIsValid = false,
+                    message = e.Message
                 };
             }
+        }
 
-            hasUser.TokenPassword = Guid.NewGuid().ToString();
+        public async Task<bool> UpdatePassword(Guid userId, string password)
+        {
+            Cryptography crypto = new Cryptography(SHA512.Create());
+            try
+            {
+                var user = await repository.SelectAsync(userId);
 
-            await repository.UpdateAsync(hasUser);
+                user.Password = crypto.CriptografarSenha(password);
+                user.TokenPassword = null;
 
-            return hasUser.TokenPassword;
+                await repository.UpdateAsync(user);
+
+                return true;
+
+            } catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }
