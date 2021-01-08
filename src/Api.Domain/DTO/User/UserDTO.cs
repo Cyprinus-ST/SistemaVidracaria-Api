@@ -1,10 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Api.Domain.DTO.User
 {
     public class UserDTO
     {
-   
+        [Required(ErrorMessage = "ID é um campo obrigatório!")]
+        public Guid ID { get; set; }
+
         [Required(ErrorMessage = "Email é um campo obrigatório para Login!")]
         [EmailAddress(ErrorMessage = "E-mail inválido!")]
         [StringLength(100, ErrorMessage = "Email dever ter no máximo {1} caracteres!")]

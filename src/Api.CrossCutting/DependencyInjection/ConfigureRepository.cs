@@ -16,7 +16,7 @@ namespace Api.CrossCutting.DependencyInjection
 
 
             serviceCollection.AddDbContext<MyContext>(
-                options => options.UseSqlServer("Data Source=DPCCAIODUARTE\\SQLEXPRESS; Initial Catalog = db_vidracaria; Integrated Security = False;User ID = sa; Password = x;")
+                    options => options.UseSqlServer("Server=127.0.0.1;Database=db_Vidracaria;User Id=sa;Password=123456;")
             );
         }
     }
