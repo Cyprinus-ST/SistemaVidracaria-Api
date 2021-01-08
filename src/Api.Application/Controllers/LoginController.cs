@@ -79,17 +79,40 @@ namespace Api.Application.Controllers
         [AllowAnonymous]
         [HttpPut]
         [Route("forgotPassword")]
-        public async Task<object> ForgotPassword([FromQuery] ForgotPasswordInput input, [FromServices] ILoginService service)
+        public async Task<ActionResult<ForgotPasswordOutput>> ForgotPassword([FromQuery] ForgotPasswordInput input, [FromServices] ILoginService service)
         {
-            var result = await service.GenerateTokenByEmail(input.Email);
-            var bodyEmail = new ForgotPassworBodyEmail();
-
-            const string subject = "Redefinir sua senha";
-            string FORGOT_PASSWORD_BODY = bodyEmail.FORGOT_PASSWORD_BODY;
-
-            var clientSmtp = new SmptClient();
-            clientSmtp.SendEmail(input.Email, null, null, subject, FORGOT_PASSWORD_BODY);
-            return Ok(result);
+            try
+            {
+                return Ok(await service.GenerateTokenByEmail(input.Email));
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e);
+            }
         }
+
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("recoveryTokenIsValid")]
+        public async Task<ActionResult<object>> RecoveryTokenIsValid([FromQuery] string token, [FromServices] ILoginService service)
+        {
+            try
+            {
+                return Ok(await service.RecoveryTokenIsValid(token));
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e);
+            }
+        }
+
+        [AllowAnonymous]
+        [HttpPatch]
+        [Route("updatePassword")]
+        public async Task<ActionResult<bool>> UpdatePassword([FromBody] UpdatePasswordInput input, [FromServices] ILoginService service)
+        {
+            return Ok(await service.UpdatePassword(input.id, input.password));
+        }
+
     }
 }

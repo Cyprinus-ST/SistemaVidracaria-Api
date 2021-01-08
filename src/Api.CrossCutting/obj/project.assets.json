@@ -5945,31 +5945,30 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Lucas\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\DELL\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Cyprinus\\SistemaVidracaria\\SistemaVidracaria-Api\\src\\Api.CrossCutting\\Api.CrossCutting.csproj",
+      "projectUniqueName": "C:\\Users\\DELL\\Desktop\\vidracaria\\SistemaVidracaria-Api\\src\\Api.CrossCutting\\Api.CrossCutting.csproj",
       "projectName": "Api.CrossCutting",
-      "projectPath": "D:\\Cyprinus\\SistemaVidracaria\\SistemaVidracaria-Api\\src\\Api.CrossCutting\\Api.CrossCutting.csproj",
-      "packagesPath": "C:\\Users\\Lucas\\.nuget\\packages\\",
-      "outputPath": "D:\\Cyprinus\\SistemaVidracaria\\SistemaVidracaria-Api\\src\\Api.CrossCutting\\obj\\",
+      "projectPath": "C:\\Users\\DELL\\Desktop\\vidracaria\\SistemaVidracaria-Api\\src\\Api.CrossCutting\\Api.CrossCutting.csproj",
+      "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\DELL\\Desktop\\vidracaria\\SistemaVidracaria-Api\\src\\Api.CrossCutting\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\Lucas\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 19.2.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\DevExpress 19.2\\Components\\System\\Components\\Packages": {},
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
@@ -5977,11 +5976,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "D:\\Cyprinus\\SistemaVidracaria\\SistemaVidracaria-Api\\src\\Api.Data\\Api.Data.csproj": {
-              "projectPath": "D:\\Cyprinus\\SistemaVidracaria\\SistemaVidracaria-Api\\src\\Api.Data\\Api.Data.csproj"
+            "C:\\Users\\DELL\\Desktop\\vidracaria\\SistemaVidracaria-Api\\src\\Api.Data\\Api.Data.csproj": {
+              "projectPath": "C:\\Users\\DELL\\Desktop\\vidracaria\\SistemaVidracaria-Api\\src\\Api.Data\\Api.Data.csproj"
             },
-            "D:\\Cyprinus\\SistemaVidracaria\\SistemaVidracaria-Api\\src\\Api.Service\\Api.Service.csproj": {
-              "projectPath": "D:\\Cyprinus\\SistemaVidracaria\\SistemaVidracaria-Api\\src\\Api.Service\\Api.Service.csproj"
+            "C:\\Users\\DELL\\Desktop\\vidracaria\\SistemaVidracaria-Api\\src\\Api.Service\\Api.Service.csproj": {
+              "projectPath": "C:\\Users\\DELL\\Desktop\\vidracaria\\SistemaVidracaria-Api\\src\\Api.Service\\Api.Service.csproj"
             }
           }
         }
