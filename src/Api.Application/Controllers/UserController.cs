@@ -1,6 +1,8 @@
 ﻿using Api.Domain.DTO.User;
 using Api.Domain.Interfaces.Services.User;
+using Api.Service.Utils;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Net;
@@ -26,13 +28,13 @@ namespace Api.Application.Controllers
 
                 var result = await service.UpdateUser(user);
 
-                if(result != null)
+                if (result != null)
                 {
                     return Ok(result);
                 }
                 else
                 {
-                    return StatusCode((int)HttpStatusCode.BadRequest,"Ocorreu um erro ao processar a sua requisição"); 
+                    return StatusCode((int)HttpStatusCode.BadRequest, "Ocorreu um erro ao processar a sua requisição");
                 }
             }
             catch (Exception e)
@@ -41,5 +43,39 @@ namespace Api.Application.Controllers
             }
         }
 
+        [HttpPost]
+        [Authorize("Bearer")]
+        [Route("uploadFile")]
+        public async Task<object> UpdateAvatarFile([FromForm] IFormFile file, [FromForm] Guid idUser, [FromServices] IUserService service)
+        {
+
+            try
+            {
+                if(file == null)
+                {
+                    return BadRequest(new
+                    {
+                        message = "Error: O parâmetro file não pode ser nulo."
+                    });
+                }
+                else
+                {
+                    var result = await service.UpdateAvatarFile(file, idUser);
+
+                    if (result != null)
+                    {
+                        return Ok(result);
+                    }
+                    else
+                    {
+                        return StatusCode((int)HttpStatusCode.BadRequest, "Ocorreu um erro ao processar a sua requisição");
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
+            }
+        }
     }
 }

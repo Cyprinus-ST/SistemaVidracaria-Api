@@ -1,12 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "DXi8+Bki2A2Tw1SdoE3fBxKDG+FXMVqFPRLdKMozsz8XRTWbcmZ9cGVnYUkWi8dnY1OUEYyHR/dlsTiYpZD1lQ==",
+  "dgSpecHash": "nHG1+mr91i+vnK6YruGTyzQ8oKRuKynVwQ3V6AgRTvbChiug17izFkjFi9NMvvVsnCBSUyohC0Psg6HpswDZHg==",
   "success": true,
   "projectFilePath": "D:\\Cyprinus\\SistemaVidracaria\\SistemaVidracaria-Api\\src\\Api.Domain\\Api.Domain.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Lucas\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.1\\microsoft.aspnetcore.http.features.5.0.1.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\Lucas\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.0\\microsoft.extensions.primitives.5.0.0.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\microsoft.identitymodel.logging\\6.8.0\\microsoft.identitymodel.logging.6.8.0.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.8.0\\microsoft.identitymodel.tokens.6.8.0.nupkg.sha512",
+    "C:\\Users\\Lucas\\.nuget\\packages\\system.io.pipelines\\5.0.1\\system.io.pipelines.5.0.1.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512"
   ],
   "logs": []
