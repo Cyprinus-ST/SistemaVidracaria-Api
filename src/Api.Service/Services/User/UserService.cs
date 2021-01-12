@@ -90,6 +90,7 @@ namespace Api.Service.Services.User
             }
         }
 
+
         public async Task<object> UpdateAvatarFile(IFormFile file, Guid idUser)
         {
             UploadFile up = new UploadFile(configuration);

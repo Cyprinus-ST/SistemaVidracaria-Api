@@ -32,18 +32,17 @@ namespace Api.Service.Utils
 
                 serverPath = serverPath + "/" + idUser + "/" + destinationFolder;
 
-
                 //Se o diretório não existir ele vai criar
                 if (!Directory.Exists(serverPath))
                 {
                     Directory.CreateDirectory(serverPath);
                 }
 
-                using (FileStream filestream = System.IO.File.Create(serverPath + @"/" + fileName))
+                using (FileStream filestream = File.Create(serverPath + @"/" + fileName))
                 {
                     await file.CopyToAsync(filestream);
                     filestream.Flush();
-                    string path = serverPath + "/" + fileName;
+                    string path = idUser + "/" + destinationFolder + "/" + fileName;
                     return path;
                 }
             }
