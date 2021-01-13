@@ -9,5 +9,8 @@ namespace Api.Domain.Interfaces.Services.User
     {
         Task<object> UpdateUser(UserDTO user);
         Task<object> UpdateAvatarFile(IFormFile file,Guid idUser);
+        Task<object> GetAllUsers();
+        Task<object> GetUser(Guid id);
+
     }
 }

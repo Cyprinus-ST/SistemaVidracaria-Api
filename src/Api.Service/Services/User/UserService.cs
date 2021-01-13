@@ -130,5 +130,41 @@ namespace Api.Service.Services.User
                 };
             }
         }
+
+        public async Task<object> GetAllUsers()
+        {
+            try
+            {
+                var result = await repository.SelectAsync();
+
+                return new
+                {
+                    users = result
+                };
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }   
+        }
+
+        public async Task<object> GetUser(Guid id)
+        {
+            try
+            {
+                var result = await repository.SelectAsync(id);
+
+                return new
+                {
+                    user = result
+                };
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }

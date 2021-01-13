@@ -77,5 +77,38 @@ namespace Api.Application.Controllers
                 return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
             }
         }
+
+        [HttpGet]
+        [Authorize("Bearer")]
+        public async Task<object> GetAllUsers([FromServices]IUserService service)
+        {
+            try
+            {
+                return Ok(await service.GetAllUsers());
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e);
+            }
+        }
+
+        [HttpGet]
+        [Route("{id}")]
+        public async Task<object> GetUser([FromRoute] Guid id, [FromServices] IUserService service)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            try
+            {
+                return Ok(await service.GetUser(id));
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e);
+            }
+        }
     }
 }
