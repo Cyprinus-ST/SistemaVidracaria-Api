@@ -1,4 +1,5 @@
 ﻿using Api.Data.Mapping;
+using Api.Domain.Entities.Plan;
 using Api.Domain.Entities.User;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -15,6 +16,7 @@ namespace Api.Data.Context
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<UserEntity>(new UserMap().Configure);
+            modelBuilder.Entity<PlanEntity>(new PlanMap().Configure);
 
 
             modelBuilder.Entity<UserEntity>().HasData(

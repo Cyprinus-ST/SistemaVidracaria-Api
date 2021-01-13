@@ -4,14 +4,16 @@ using Api.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Api.Data.Migrations
 {
     [DbContext(typeof(MyContext))]
-    partial class MyContextModelSnapshot : ModelSnapshot
+    [Migration("20210112000113_CreatePlanTable")]
+    partial class CreatePlanTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -37,9 +39,10 @@ namespace Api.Data.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<double>("Price")
+                    b.Property<string>("Price")
+                        .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("float");
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Status")
                         .IsRequired()
@@ -143,12 +146,12 @@ namespace Api.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("9498cb07-617d-4cc9-be07-aad3d26a9605"),
-                            CreateAt = new DateTime(2021, 1, 11, 23, 34, 12, 154, DateTimeKind.Local).AddTicks(9593),
+                            Id = new Guid("91b8fd0b-2a5c-4c8d-82d8-794f086b27da"),
+                            CreateAt = new DateTime(2021, 1, 11, 21, 1, 13, 238, DateTimeKind.Local).AddTicks(4452),
                             Email = "lucas.vilas@email.com",
                             Name = "Administrador",
                             Password = "123456",
-                            UpdateAt = new DateTime(2021, 1, 11, 23, 34, 12, 156, DateTimeKind.Local).AddTicks(7604)
+                            UpdateAt = new DateTime(2021, 1, 11, 21, 1, 13, 240, DateTimeKind.Local).AddTicks(5866)
                         });
                 });
 #pragma warning restore 612, 618
