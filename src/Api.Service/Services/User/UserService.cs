@@ -5,6 +5,7 @@ using Api.Domain.Interfaces.Services.User;
 using Api.Domain.Model.User;
 using Api.Service.Utils;
 using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Security.Cryptography;
@@ -50,7 +51,7 @@ namespace Api.Service.Services.User
 
                 var email = await repository.FindByEmail(user.Email);
 
-                if(email != null && email.Email != userOld.Email)
+                if (email != null && email.Email != userOld.Email)
                 {
                     return new
                     {
@@ -62,7 +63,7 @@ namespace Api.Service.Services.User
                 var entity = mapper.Map<UserEntity>(model);
                 var data = await repository.UpdateAsync(entity);
 
-                if(data == null)
+                if (data == null)
                 {
                     return new
                     {
@@ -86,6 +87,83 @@ namespace Api.Service.Services.User
                 {
                     message = "Ocorreu um erro ao atualizar os dados cadastrais do usuário. Erro: " + ex.Message
                 };
+            }
+        }
+
+
+        public async Task<object> UpdateAvatarFile(IFormFile file, Guid idUser)
+        {
+            UploadFile up = new UploadFile(configuration);
+            DateTime moment = DateTime.Now;
+
+            try
+            {
+                if(file != null)
+                {
+                    string fileName = moment.Millisecond.ToString() + file.FileName;
+                    string path = await up.Upload("UserAvatar", file, idUser, fileName);
+
+                    return new
+                    {
+                        valid = true,
+                        message = "Upload feito com sucesso!",
+                        path = path
+                    };
+                }
+                else
+                {
+                    return new
+                    {
+                        valid = false,
+                        message = "Favor enviar um arquivo!"
+                    };
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return new
+                {
+                    valid = false,
+                    message = "Ocorreu um erro ao fazer o upload do arquivo:" + ex.Message,
+
+                };
+            }
+        }
+
+        public async Task<object> GetAllUsers()
+        {
+            try
+            {
+                var result = await repository.SelectAsync();
+
+                return new
+                {
+                    users = result
+                };
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }   
+        }
+
+        public async Task<object> GetUser(Guid id)
+        {
+            try
+            {
+                var result = await repository.SelectAsync(id);
+
+                return new
+                {
+                    user = result
+                };
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
             }
         }
     }
