@@ -49,11 +49,50 @@ namespace Api.Service.Services.Plan
             try
             {
                 IEnumerable<PlanEntity> lisResult = await _repository.SelectAsync();
-                var listPlan = _mapper.Map<List<PlanDTO>>(lisResult);
+                var listPlan = _mapper.Map<IEnumerable<PlanDTO>>(lisResult);
                 return listPlan;
             } catch(Exception e){
                 throw e;
             }
         }
+
+        public async Task<object> UpdatePlan(Guid id, UpdatePlanInput input)
+        {
+            var plan = await _repository.SelectAsync(id);
+
+            if(plan == null)
+            {
+                throw new Exception("Falha ao atualizar o plano!");
+            }
+
+            input.ID = id;
+
+            var mappedPlanEntity = _mapper.Map<PlanEntity>(input);
+            await _repository.UpdateAsync(mappedPlanEntity);
+
+            return new {
+                valid = true,
+                message = "Plano alterado com sucesso!"
+            };
+        }
+
+        public async Task<object> DeletePlan(DeletePlanInput input)
+        {
+            var plan = await _repository.SelectAsync(input.ID);
+
+            if (plan == null)
+            {
+                throw new Exception("Falha ao deletar o plano!");
+            }
+
+            await _repository.DeleteAsync(input.ID);
+
+            return new
+            {
+                valid = true,
+                message = "Plano deletado com sucesso!"
+            };
+        }
+
     }
 }

@@ -25,14 +25,14 @@ namespace Api.Application.Controllers
             } catch (Exception e)
             {
                 return BadRequest(
-                    new { 
+                    new {
                         message = e.Message
                     }
                 );
             }
         }
 
-        [Authorize("Bearer")]
+        [Authorize]
         [HttpGet]
         public async Task<ActionResult<object>> ListPlan([FromServices] IPlanService service)
         {
@@ -48,6 +48,47 @@ namespace Api.Application.Controllers
                        message = e.Message
                    }
                );
+            }
+        }
+
+        [HttpPut]
+        [Route("{id}")]
+        public async Task<ActionResult<object>> UpdatePlan([FromRoute] Guid id, [FromBody] UpdatePlanInput input, [FromServices] IPlanService service)
+        {
+            try
+            {
+                var result = await service.UpdatePlan(id, input);
+                return Ok(result);
+            } catch(Exception e)
+            {
+                return BadRequest(
+                  new
+                  {
+                      valid = false,
+                      message = e.Message
+                  }
+                );
+            }
+        }
+
+        [Authorize]
+        [HttpPatch]
+        public async Task<ActionResult<object>> DeletePlan([FromQuery] DeletePlanInput input, [FromServices] IPlanService service)
+        {
+            try
+            {
+                var result = await service.DeletePlan(input);
+                return Ok(result);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(
+                  new
+                  {
+                      valid = false,
+                      message = e.Message
+                  }
+                );
             }
         }
     }
