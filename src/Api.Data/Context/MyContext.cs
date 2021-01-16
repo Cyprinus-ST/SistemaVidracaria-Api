@@ -17,7 +17,7 @@ namespace Api.Data.Context
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<UserEntity>(new UserMap().Configure);
             modelBuilder.Entity<PlanEntity>(new PlanMap().Configure);
-
+            modelBuilder.Entity<PlanUserEntity>(new PlanUserMap().Configure);
 
             modelBuilder.Entity<UserEntity>().HasData(
                 new UserEntity
@@ -31,6 +31,18 @@ namespace Api.Data.Context
                 }
             );
 
+            modelBuilder.Entity<PlanEntity>().HasData(
+                new PlanEntity
+                {
+                    Id = Guid.NewGuid(),
+                    Description = "Plano Experimental",
+                    Name = "Plano Experimental",
+                    Price = 0.00,
+                    Status = "Ativo",
+                    CreateAt = DateTime.Now,
+                    UpdateAt = DateTime.Now,
+                }
+           );
         }
 
     }

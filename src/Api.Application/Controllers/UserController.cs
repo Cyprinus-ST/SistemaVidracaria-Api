@@ -1,6 +1,5 @@
 ﻿using Api.Domain.DTO.User;
 using Api.Domain.Interfaces.Services.User;
-using Api.Service.Utils;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -79,7 +78,7 @@ namespace Api.Application.Controllers
         }
 
         [HttpGet]
-        [Authorize("Bearer")]
+        //[Authorize("Bearer")]
         public async Task<object> GetAllUsers([FromServices]IUserService service)
         {
             try

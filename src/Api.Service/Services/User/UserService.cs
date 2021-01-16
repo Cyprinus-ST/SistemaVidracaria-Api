@@ -8,6 +8,8 @@ using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
 
@@ -135,7 +137,8 @@ namespace Api.Service.Services.User
         {
             try
             {
-                var result = await repository.SelectAsync();
+                var users = await repository.FindUser();
+                var result = mapper.Map<IEnumerable<UserPlanDTO>>(users);
 
                 return new
                 {
