@@ -59,27 +59,14 @@ namespace Api.Data.Implementations
                                            where u.Type == "user"
                                            select new UserPlanDTO
                                            {
+                                               Id = u.Id,
+                                               Name = u.Name,
                                                IdPlan = p.Id,
-                                               Type = u.Type,
-                                               CEP = u.CEP,
-                                               City = u.City,
-                                               Complement = u.Complement,
-                                               Country = u.Country,
-                                               CPF = u.CPF,
+                                               CreateAt = u.CreateAt,
+                                               NamePlan = p.Name,
                                                DateAcquisition = pu.dateAcquisition,
                                                DateExpired = pu.dateExpired,
-                                               Description = p.Description,
-                                               Email = u.Email,
-                                               Name = u.Name,
-                                               NamePlan = p.Name,
-                                               Neighborhood = u.Neighborhood,
-                                               Number = u.Number,
-                                               Phone = u.Phone,
-                                               Price = p.Price,
-                                               State = u.State,
-                                               Status = p.Status,
-                                               StatusPlan = pu.statusPlan,
-                                               Street = u.Street,
+                                               StatusPlan = pu.statusPlan
 
                                            }).ToList();
                 return users;
@@ -89,6 +76,51 @@ namespace Api.Data.Implementations
                 throw;
             }
 
+        }
+
+        public async Task<UserPlanCompleteDTO> FindById(Guid id)
+        {
+            try
+            {
+                UserPlanCompleteDTO user = (from u in User
+                                           join pu in PlanUser
+                                           on u.Id equals pu.idUser
+                                           join p in Plan
+                                           on pu.idPlan equals p.Id
+                                           where u.Id == id
+                                           select new UserPlanCompleteDTO
+                                           {
+                                               Id = u.Id,
+                                               Name = u.Name,
+                                               IdPlan = p.Id,
+                                               CreateAt = u.CreateAt,
+                                               NamePlan = p.Name,
+                                               DateAcquisition = pu.dateAcquisition,
+                                               DateExpired = pu.dateExpired,
+                                               StatusPlan = pu.statusPlan,
+                                               Type = u.Type,
+                                               CEP = u.CEP,
+                                               City = u.City,
+                                               Complement = u.Complement,
+                                               Country = u.Country,
+                                               CPF = u.CPF,
+                                               Description = p.Description,
+                                               Email = u.Email,
+                                               Neighborhood = u.Neighborhood,
+                                               Number = u.Number,
+                                               Phone = u.Phone,
+                                               Price = p.Price,
+                                               State = u.State,
+                                               Status = p.Status,
+                                               Street = u.Street,
+                                               PathAvatar = u.PathAvatar
+                                           }).FirstOrDefault();
+                return user;
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
         }
     }
 }

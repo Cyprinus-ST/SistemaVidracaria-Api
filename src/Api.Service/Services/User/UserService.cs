@@ -156,17 +156,13 @@ namespace Api.Service.Services.User
         {
             try
             {
-                var result = await repository.SelectAsync(id);
+                var user = await repository.FindById(id);
 
-                return new
-                {
-                    user = result
-                };
+                return user;
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                throw;
             }
         }
     }

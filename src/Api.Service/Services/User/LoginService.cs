@@ -119,6 +119,7 @@ namespace Api.Service.Services.User
             try
             {
                 var hasUser = await repository.FindByEmail(newUser.Email);
+
                 if(hasUser == null)
                 {
                     if (!newUser.Type.Equals("admin") && !newUser.Type.Equals("user"))

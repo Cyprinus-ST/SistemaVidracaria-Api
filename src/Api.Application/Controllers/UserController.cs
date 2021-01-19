@@ -78,7 +78,7 @@ namespace Api.Application.Controllers
         }
 
         [HttpGet]
-        //[Authorize("Bearer")]
+        [Authorize("Bearer")]
         public async Task<object> GetAllUsers([FromServices]IUserService service)
         {
             try
@@ -93,6 +93,7 @@ namespace Api.Application.Controllers
 
         [HttpGet]
         [Route("{id}")]
+        //[Authorize("Bearer")]
         public async Task<object> GetUser([FromRoute] Guid id, [FromServices] IUserService service)
         {
             if (!ModelState.IsValid)
