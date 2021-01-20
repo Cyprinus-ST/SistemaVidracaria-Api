@@ -4,52 +4,22 @@ using Api.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Api.Data.Migrations
 {
     [DbContext(typeof(MyContext))]
-    partial class MyContextModelSnapshot : ModelSnapshot
+    [Migration("20210120005751_Material")]
+    partial class Material
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .UseIdentityColumns()
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.1");
-
-            modelBuilder.Entity("Api.Domain.Entities.Costumer.CostumerEntity", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("CreateAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("Phone")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<DateTime?>("UpdateAt")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Costumer");
-                });
 
             modelBuilder.Entity("Api.Domain.Entities.Material.MaterialEntity", b =>
                 {
@@ -113,13 +83,13 @@ namespace Api.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("74cc5901-e935-45b0-bb55-82a3253ced5c"),
-                            CreateAt = new DateTime(2021, 1, 19, 22, 5, 5, 468, DateTimeKind.Local).AddTicks(4035),
+                            Id = new Guid("27e6ea48-087e-45e4-a729-47cafc67adbf"),
+                            CreateAt = new DateTime(2021, 1, 19, 21, 57, 50, 987, DateTimeKind.Local).AddTicks(17),
                             Description = "Plano Experimental",
                             Name = "Plano Experimental",
                             Price = 0.0,
                             Status = "Ativo",
-                            UpdateAt = new DateTime(2021, 1, 19, 22, 5, 5, 468, DateTimeKind.Local).AddTicks(4043)
+                            UpdateAt = new DateTime(2021, 1, 19, 21, 57, 50, 987, DateTimeKind.Local).AddTicks(31)
                         });
                 });
 
@@ -154,41 +124,6 @@ namespace Api.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("PlanUser");
-                });
-
-            modelBuilder.Entity("Api.Domain.Entities.Provider.ProviderEntity", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("CreateAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Descripition")
-                        .HasMaxLength(350)
-                        .HasColumnType("nvarchar(350)");
-
-                    b.Property<string>("Email")
-                        .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("Phone")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.Property<DateTime?>("UpdateAt")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Provider");
                 });
 
             modelBuilder.Entity("Api.Domain.Entities.User.UserEntity", b =>
@@ -280,12 +215,12 @@ namespace Api.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("ba7e403c-3c0e-4bad-94ec-bcef601ef6f3"),
-                            CreateAt = new DateTime(2021, 1, 19, 22, 5, 5, 465, DateTimeKind.Local).AddTicks(9991),
+                            Id = new Guid("efea6c85-fc9a-4e6e-9252-8c4bf6968af2"),
+                            CreateAt = new DateTime(2021, 1, 19, 21, 57, 50, 984, DateTimeKind.Local).AddTicks(1330),
                             Email = "lucas.vilas@email.com",
                             Name = "Administrador",
                             Password = "123456",
-                            UpdateAt = new DateTime(2021, 1, 19, 22, 5, 5, 467, DateTimeKind.Local).AddTicks(568)
+                            UpdateAt = new DateTime(2021, 1, 19, 21, 57, 50, 985, DateTimeKind.Local).AddTicks(4858)
                         });
                 });
 #pragma warning restore 612, 618

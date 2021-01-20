@@ -1,6 +1,6 @@
-﻿namespace Api.Domain.Entities.Costumer
+﻿namespace Api.Domain.Model.Costumer
 {
-    public class CostumerModel : BaseEntity
+    public class CostumerModel
     {
         public string Name { get; set; }
         public string Email { get; set; }

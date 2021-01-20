@@ -1,6 +1,6 @@
-﻿namespace Api.Domain.Entities.Provider
+﻿namespace Api.Domain.Model.Provider
 {
-    public class ProviderModel : BaseEntity
+    public class ProviderModel 
     {
         public string Name { get; set; }
         public string Email { get; set; }

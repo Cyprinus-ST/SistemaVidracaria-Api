@@ -1,6 +1,6 @@
-﻿namespace Api.Domain.Entities.Material
+﻿namespace Api.Domain.Model.Material
 {
-    public class MaterialModel : BaseEntity
+    public class MaterialModel
     {
         public string Title { get; set; }
         public int Amount { get; set; }
