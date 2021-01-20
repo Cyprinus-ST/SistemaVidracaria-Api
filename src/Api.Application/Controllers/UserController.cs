@@ -1,6 +1,5 @@
 ﻿using Api.Domain.DTO.User;
 using Api.Domain.Interfaces.Services.User;
-using Api.Service.Utils;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -94,6 +93,7 @@ namespace Api.Application.Controllers
 
         [HttpGet]
         [Route("{id}")]
+        [Authorize("Bearer")]
         public async Task<object> GetUser([FromRoute] Guid id, [FromServices] IUserService service)
         {
             if (!ModelState.IsValid)

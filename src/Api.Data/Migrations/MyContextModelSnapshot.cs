@@ -19,6 +19,63 @@ namespace Api.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.1");
 
+            modelBuilder.Entity("Api.Domain.Entities.Costumer.CostumerEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("CreateAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<DateTime?>("UpdateAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Costumer");
+                });
+
+            modelBuilder.Entity("Api.Domain.Entities.Material.MaterialEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Amount")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("CreateAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<DateTime?>("UpdateAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Material");
+                });
+
             modelBuilder.Entity("Api.Domain.Entities.Plan.PlanEntity", b =>
                 {
                     b.Property<Guid>("Id")
@@ -52,6 +109,86 @@ namespace Api.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Plan");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("74cc5901-e935-45b0-bb55-82a3253ced5c"),
+                            CreateAt = new DateTime(2021, 1, 19, 22, 5, 5, 468, DateTimeKind.Local).AddTicks(4035),
+                            Description = "Plano Experimental",
+                            Name = "Plano Experimental",
+                            Price = 0.0,
+                            Status = "Ativo",
+                            UpdateAt = new DateTime(2021, 1, 19, 22, 5, 5, 468, DateTimeKind.Local).AddTicks(4043)
+                        });
+                });
+
+            modelBuilder.Entity("Api.Domain.Entities.Plan.PlanUserEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("CreateAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("UpdateAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("dateAcquisition")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("dateExpired")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("idPlan")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("idUser")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("statusPlan")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PlanUser");
+                });
+
+            modelBuilder.Entity("Api.Domain.Entities.Provider.ProviderEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("CreateAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Descripition")
+                        .HasMaxLength(350)
+                        .HasColumnType("nvarchar(350)");
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<DateTime?>("UpdateAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Provider");
                 });
 
             modelBuilder.Entity("Api.Domain.Entities.User.UserEntity", b =>
@@ -143,12 +280,12 @@ namespace Api.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("e4b46452-9266-4084-9b5b-99d32615de69"),
-                            CreateAt = new DateTime(2021, 1, 18, 21, 37, 41, 173, DateTimeKind.Local).AddTicks(8035),
+                            Id = new Guid("ba7e403c-3c0e-4bad-94ec-bcef601ef6f3"),
+                            CreateAt = new DateTime(2021, 1, 19, 22, 5, 5, 465, DateTimeKind.Local).AddTicks(9991),
                             Email = "lucas.vilas@email.com",
                             Name = "Administrador",
                             Password = "123456",
-                            UpdateAt = new DateTime(2021, 1, 18, 21, 37, 41, 175, DateTimeKind.Local).AddTicks(7700)
+                            UpdateAt = new DateTime(2021, 1, 19, 22, 5, 5, 467, DateTimeKind.Local).AddTicks(568)
                         });
                 });
 #pragma warning restore 612, 618

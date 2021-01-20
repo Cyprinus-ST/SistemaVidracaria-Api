@@ -3,6 +3,8 @@ using Api.Data.Repository;
 using Api.Domain.Entities.Plan;
 using Api.Domain.Interfaces.Repository;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Threading.Tasks;
 
 namespace Api.Data.Implementations.Plan
 {
@@ -14,5 +16,18 @@ namespace Api.Data.Implementations.Plan
         {
             _dataset = context.Set<PlanEntity>();
         }
+
+        public async Task<PlanEntity> FindByName(string name)
+        {
+            try
+            {
+                return await _dataset.FirstOrDefaultAsync(p => p.Name.Equals(name));
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
     }
+
 }

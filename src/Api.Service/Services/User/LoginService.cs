@@ -1,8 +1,10 @@
 ﻿using Api.Domain.DTO.Login;
 using Api.Domain.DTO.User;
+using Api.Domain.Entities.Plan;
 using Api.Domain.Entities.User;
 using Api.Domain.Interfaces.Repository;
 using Api.Domain.Interfaces.Services.Login;
+using Api.Domain.Model.Plan;
 using Api.Domain.Model.User;
 using Api.Domain.Security;
 using Api.Domain.Utils;
@@ -22,15 +24,19 @@ namespace Api.Service.Services.User
     public class LoginService : ILoginService
     {
         private IUserRepository repository;
+        private IPlanRepository planRepository;
+        private IPlanUserRepository planUserRepository;
         public SigningConfigurations signingConfigurations;
         public TokenConfigurations tokenConfigurations;
         private readonly IMapper mapper;
 
         private IConfiguration configuration { get; }
 
-        public LoginService(IUserRepository _repository, SigningConfigurations _signingConfigurations, TokenConfigurations _tokenConfigurations, IConfiguration _configuration, IMapper _mapper)
+        public LoginService(IUserRepository _repository, IPlanRepository _planRepository, IPlanUserRepository _planUserRepository, SigningConfigurations _signingConfigurations, TokenConfigurations _tokenConfigurations, IConfiguration _configuration, IMapper _mapper)
         {
             repository = _repository;
+            planRepository = _planRepository;
+            planUserRepository = _planUserRepository;
             signingConfigurations = _signingConfigurations;
             tokenConfigurations = _tokenConfigurations;
             configuration = _configuration;
@@ -113,6 +119,7 @@ namespace Api.Service.Services.User
             try
             {
                 var hasUser = await repository.FindByEmail(newUser.Email);
+
                 if(hasUser == null)
                 {
                     if (!newUser.Type.Equals("admin") && !newUser.Type.Equals("user"))
@@ -128,10 +135,26 @@ namespace Api.Service.Services.User
                     var entity = mapper.Map<UserEntity>(model);
                     var result = await repository.InsertAsync(entity);
 
+                    //Buscando o plano experimental, para cadastrar no usuário
+                    PlanEntity plan = await planRepository.FindByName("Plano Experimental");
+
+                    PlanUserModel pu = new PlanUserModel();
+                    pu.dateAcquisition = DateTime.Now;
+
+                    //O período experimental é de 7 dias
+                    pu.dateExpired = DateTime.Now.AddDays(7);
+                    pu.idPlan = plan.Id;
+                    pu.idUser = result.Id;
+                    pu.statusPlan = "ACTIVE";
+
+                    var modelPlanUser = mapper.Map<PlanUserEntity>(pu);
+
+                    var planUser = await planUserRepository.InsertAsync(modelPlanUser);
+
                     return new
                     {
                         user = result,
-                        message = "Usuário cadastrado com sucesso!"
+                        message = "Usuário cadastrado com sucesso! Você tem um período de 7 dias grátis!"
                     };
                 }
                 else
