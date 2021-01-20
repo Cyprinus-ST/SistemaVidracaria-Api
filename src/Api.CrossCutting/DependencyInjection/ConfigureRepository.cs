@@ -1,5 +1,6 @@
 ﻿using Api.Data.Context;
 using Api.Data.Implementations;
+using Api.Data.Implementations.Material;
 using Api.Data.Implementations.Plan;
 using Api.Data.Repository;
 using Api.Domain.Interfaces.Repository;
@@ -16,8 +17,7 @@ namespace Api.CrossCutting.DependencyInjection
             serviceCollection.AddScoped<IUserRepository, UserImplementation>();
             serviceCollection.AddScoped<IPlanRepository, PlanImplementation>();
             serviceCollection.AddScoped<IPlanUserRepository, PlanUserImplementation>();
-
-
+            serviceCollection.AddScoped<IMaterialRepository, MaterialImplementation>();
 
             //serviceCollection.AddDbContext<MyContext>(
             //        options => options.UseSqlServer("Data Source=DPCCAIODUARTE\\SQLEXPRESS; Initial Catalog = db_vidracaria; Integrated Security = False;User ID = sa; Password = x;")
