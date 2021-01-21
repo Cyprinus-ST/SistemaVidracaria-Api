@@ -6,7 +6,7 @@ namespace Api.Domain.DTO.Material
     public class UpdateMaterialInput
     {
         [Required(ErrorMessage = "O campo ID é obrigatório")]
-        public Guid id;
+        public Guid id { get; set; }
 
         [Required(ErrorMessage = "O campo nome é obrigatório")]
         public string Name { get; set; }

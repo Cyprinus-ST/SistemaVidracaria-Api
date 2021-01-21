@@ -78,16 +78,56 @@ namespace Api.Service.Services.Material
             }
         }
         
-        public async Task<object> GetAllMaterial()
+        public async Task<object> GetAllMaterial(Guid idUser)
         {
-            IEnumerable<MaterialEntity> listResult = await repository.SelectAsync();
-            return listResult;
+            List<MaterialEntity> listResult = await repository.FindByIdUser(idUser);
+
+            if(listResult.Count > 0)
+            {
+                return new
+                {
+                    valid = true,
+                    listMaterial = listResult
+                };
+            }
+            else
+            {
+                return new
+                {
+                    valid = false,
+                    message = "Não encontramos material cadastrado para o usuário!"
+                };
+            }
 
         }
 
         public async Task<object> GetMaterialById(Guid id)
         {
-            return await repository.SelectAsync(id);
+            try
+            {
+                var result = await repository.SelectAsync(id);
+                if(result != null)
+                {
+                    return new
+                    {
+                        valid = true,
+                        result
+                    };
+                }
+                else
+                {
+                    return new
+                    {
+                        valid = false,
+                        message = "Não encontramos nenhum material com esse registro!"
+                    };
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            
         }
 
         public async Task<object> UpdateMaterial(UpdateMaterialInput Material)

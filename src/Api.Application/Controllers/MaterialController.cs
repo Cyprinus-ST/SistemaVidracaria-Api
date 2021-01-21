@@ -45,11 +45,11 @@ namespace Api.Application.Controllers
         }
 
         [HttpGet]
-        public async Task<object> GetAllMaterial([FromServices] IMaterialService service)
+        public async Task<object> GetAllMaterial([FromQuery] Guid idUser, [FromServices] IMaterialService service)
         {
             try
             {
-                var result = await service.GetAllMaterial();
+                var result = await service.GetAllMaterial(idUser);
                 return Ok(result);
             }
             catch (Exception e)
@@ -64,12 +64,19 @@ namespace Api.Application.Controllers
         {
             try
             {
-                return null;
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+                else
+                {
+                    var result = await service.GetMaterialById(id);
+                    return Ok(result);
+                }
             }
             catch (Exception e)
             {
-
-                throw;
+                return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
             }
         }
 
@@ -78,12 +85,19 @@ namespace Api.Application.Controllers
         {
             try
             {
-                return null;
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+                else
+                {
+                    var result = await service.UpdateMaterial(Material);
+                    return Ok(result);
+                }
             }
             catch (Exception e)
             {
-
-                throw;
+                return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
             }
         }
 
@@ -92,12 +106,19 @@ namespace Api.Application.Controllers
         {
             try
             {
-                return null;
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+                else
+                {
+                    var result = await service.DeleteMaterial(id);
+                    return Ok(result);
+                }
             }
             catch (Exception e)
             {
-
-                throw;
+                return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
             }
         }
     }
