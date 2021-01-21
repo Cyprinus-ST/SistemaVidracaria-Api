@@ -44,6 +44,7 @@ namespace Api.Application.Controllers
             }
         }
 
+        [Authorize("Bearer")]
         [HttpGet]
         public async Task<object> GetAllMaterial([FromQuery] Guid idUser, [FromServices] IMaterialService service)
         {
