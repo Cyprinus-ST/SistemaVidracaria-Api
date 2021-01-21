@@ -28,7 +28,7 @@ namespace Api.Data.Context
             modelBuilder.Entity<UserEntity>().HasData(
                 new UserEntity
                 {
-                    Id = Guid.NewGuid(),
+                    Id = Guid.Parse("BD43824D-95DE-4B40-BE71-F634B75C47BE"),
                     Name = "Administrador",
                     Email = "lucas.vilas@email.com",
                     Password = "123456",
@@ -40,7 +40,7 @@ namespace Api.Data.Context
             modelBuilder.Entity<PlanEntity>().HasData(
                 new PlanEntity
                 {
-                    Id = Guid.NewGuid(),
+                    Id = Guid.Parse("2216F112-4C4E-4FDC-B300-EDA19D5DE4E4"),
                     Description = "Plano Experimental",
                     Name = "Plano Experimental",
                     Price = 0.00,
