@@ -43,7 +43,7 @@ namespace Api.Data.Context
                     Id = Guid.Parse("2216F112-4C4E-4FDC-B300-EDA19D5DE4E4"),
                     Description = "Plano Experimental",
                     Name = "Plano Experimental",
-                    Price = 0.00,
+                    Installments = 0.00,
                     Status = "Ativo",
                     CreateAt = DateTime.Now,
                     UpdateAt = DateTime.Now,
