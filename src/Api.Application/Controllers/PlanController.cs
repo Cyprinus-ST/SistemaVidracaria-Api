@@ -73,7 +73,7 @@ namespace Api.Application.Controllers
         }
 
         [Authorize("Bearer")]
-        [HttpPatch]
+        [HttpDelete]
         public async Task<ActionResult<object>> DeletePlan([FromQuery] DeletePlanInput input, [FromServices] IPlanService service)
         {
             try

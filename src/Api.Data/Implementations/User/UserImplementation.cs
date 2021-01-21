@@ -109,7 +109,7 @@ namespace Api.Data.Implementations
                                                Neighborhood = u.Neighborhood,
                                                Number = u.Number,
                                                Phone = u.Phone,
-                                               Price = p.Price,
+                                               Price = p.Installments,
                                                State = u.State,
                                                Status = p.Status,
                                                Street = u.Street,

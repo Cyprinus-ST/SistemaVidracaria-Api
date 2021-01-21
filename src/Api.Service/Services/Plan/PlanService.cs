@@ -21,18 +21,17 @@ namespace Api.Service.Services.Plan
         }
         public async Task<object> AddPlan(AddPlanInput input)
         {
-            if (string.IsNullOrEmpty(input.Name) || input.Price < 0)
+            if (string.IsNullOrEmpty(input.Name) || input.Installments < 0)
             {
                 throw new Exception("Campos inválidos");
             }
 
             input.Status = "ACTIVE";
 
-            // var planMapped = _mapper.Map<PlanEntity>(input);
             var entity = new PlanEntity();
             entity.Name = input.Name;
             entity.Description = input.Description;
-            entity.Price = input.Price;
+            entity.Installments = input.Installments;
             entity.Status = input.Status;
             await _repository.InsertAsync(entity);
 

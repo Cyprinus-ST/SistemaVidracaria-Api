@@ -18,7 +18,7 @@ namespace Api.Data.Mapping
             builder.Property(u => u.Description)
                 .HasMaxLength(500);
 
-            builder.Property(u => u.Price)
+            builder.Property(u => u.Installments)
                 .IsRequired()
                 .HasMaxLength(100);
 
