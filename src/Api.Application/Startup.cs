@@ -33,7 +33,7 @@ namespace Api.Application
             ConfigureService.ConfigureDependenciesService(services);
             ConfigureRepository.ConfigureDependenciesRepository(services);
 
-            //Configurando AutoMapper, respons�vel por converter as classes
+            //Configurando AutoMapper, responsavel por converter as classes
             var config = new AutoMapper.MapperConfiguration(c =>
             {
                 c.AddProfile(new DtoToModelProfile());

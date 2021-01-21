@@ -1,7 +1,9 @@
 ﻿using Api.Domain.DTO.Material;
 using Api.Domain.Interfaces.Services.Material;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace Api.Application.Controllers
@@ -10,17 +12,35 @@ namespace Api.Application.Controllers
     [ApiController]
     public class MaterialController : ControllerBase
     {
+        [Authorize("Bearer")]
         [HttpPost]
         public async Task<object> AddMaterial([FromBody] AddMaterialInput Material,[FromServices] IMaterialService service)
         {
             try
             {
-                return null;
+                if(!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+                else
+                {
+                    var result = await service.AddMaterial(Material);
+
+                    if (result != null)
+                    {
+                        return Ok(result);
+                    }
+                    else
+                    {
+                        return BadRequest("Ocorreu um erro ao tentar cadastrar o material!");
+                    }
+                }
+
             }
             catch (Exception e)
             {
 
-                throw;
+                return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
             }
         }
 
@@ -29,12 +49,12 @@ namespace Api.Application.Controllers
         {
             try
             {
-                return null;
+                var result = await service.GetAllMaterial();
+                return Ok(result);
             }
             catch (Exception e)
             {
-
-                throw;
+                return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
             }
         }
 
@@ -54,7 +74,7 @@ namespace Api.Application.Controllers
         }
 
         [HttpPut]
-        public async Task<object> UpdateMaterial([FromBody] AddMaterialInput Material,[FromServices] IMaterialService service)
+        public async Task<object> UpdateMaterial([FromBody] UpdateMaterialInput Material,[FromServices] IMaterialService service)
         {
             try
             {

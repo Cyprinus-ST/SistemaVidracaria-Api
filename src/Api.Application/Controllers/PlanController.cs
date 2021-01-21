@@ -32,7 +32,7 @@ namespace Api.Application.Controllers
             }
         }
 
-        [Authorize]
+        [Authorize("Bearer")]
         [HttpGet]
         public async Task<ActionResult<object>> ListPlan([FromServices] IPlanService service)
         {
@@ -51,6 +51,7 @@ namespace Api.Application.Controllers
             }
         }
 
+        [Authorize("Bearer")]
         [HttpPut]
         [Route("{id}")]
         public async Task<ActionResult<object>> UpdatePlan([FromRoute] Guid id, [FromBody] UpdatePlanInput input, [FromServices] IPlanService service)
@@ -71,7 +72,7 @@ namespace Api.Application.Controllers
             }
         }
 
-        [Authorize]
+        [Authorize("Bearer")]
         [HttpPatch]
         public async Task<ActionResult<object>> DeletePlan([FromQuery] DeletePlanInput input, [FromServices] IPlanService service)
         {

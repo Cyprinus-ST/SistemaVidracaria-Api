@@ -48,8 +48,8 @@ namespace Api.Service.Services.Plan
         {
             try
             {
-                IEnumerable<PlanEntity> lisResult = await _repository.SelectAsync();
-                var listPlan = _mapper.Map<IEnumerable<PlanDTO>>(lisResult);
+                IEnumerable<PlanEntity> listResult = await _repository.SelectAsync();
+                var listPlan = _mapper.Map<IEnumerable<PlanDTO>>(listResult);
                 return listPlan;
             } catch(Exception e){
                 throw e;
