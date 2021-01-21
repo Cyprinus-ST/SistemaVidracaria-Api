@@ -44,7 +44,7 @@ namespace Api.Data.Context
                     Id = Guid.NewGuid(),
                     Description = "Plano Experimental",
                     Name = "Plano Experimental",
-                    Price = 0.00,
+                    Installments = 0.00,
                     Status = "Ativo",
                     CreateAt = DateTime.Now,
                     UpdateAt = DateTime.Now,
