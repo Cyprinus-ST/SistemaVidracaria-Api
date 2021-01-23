@@ -19,13 +19,13 @@ namespace Api.CrossCutting.DependencyInjection
             serviceCollection.AddScoped<IPlanUserRepository, PlanUserImplementation>();
             serviceCollection.AddScoped<IMaterialRepository, MaterialImplementation>();
 
-            //serviceCollection.AddDbContext<MyContext>(
-            //        options => options.UseSqlServer("Data Source=DPCCAIODUARTE\\SQLEXPRESS; Initial Catalog = db_vidracaria; Integrated Security = False;User ID = sa; Password = x;")
-            //);
-
             serviceCollection.AddDbContext<MyContext>(
-                    options => options.UseSqlServer("Server=127.0.0.1;Database=db_vidracaria;User Id=sa;Password=123456;")
+                    options => options.UseSqlServer("Data Source=DPCCAIODUARTE\\SQLEXPRESS; Initial Catalog = db_vidracaria; Integrated Security = False;User ID=sa; Password=x;")
             );
+
+            //serviceCollection.AddDbContext<MyContext>(
+              //      options => options.UseSqlServer("Server=127.0.0.1;Database=db_vidracaria;User Id=sa;Password=123456;")
+            //);
         }
     }
 }

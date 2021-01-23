@@ -3,6 +3,8 @@ using Api.Data.Repository;
 using Api.Domain.Entities.Plan;
 using Api.Domain.Interfaces.Repository;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Threading.Tasks;
 
 namespace Api.Data.Implementations.Plan
 {
@@ -15,5 +17,9 @@ namespace Api.Data.Implementations.Plan
             planUser = context.Set<PlanUserEntity>();
         }
 
+        public Task<PlanUserEntity> ExistsUsersInPlan(Guid id)
+        {
+            return planUser.FirstOrDefaultAsync(u => u.idPlan.Equals(id));
+        }
     }
 }
