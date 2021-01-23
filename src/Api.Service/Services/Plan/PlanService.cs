@@ -87,7 +87,7 @@ namespace Api.Service.Services.Plan
                 throw new Exception("Falha ao deletar o plano!");
             }
 
-            if (await _planUserService.ExistUsersinPlan(plan.Id);)
+            if (await _planUserService.ExistUsersinPlan(plan.Id))
             {
                 throw new Exception("Falha a oexcluir o plano da base de dados! Existem usuários vinculados a este plano!");
             }
