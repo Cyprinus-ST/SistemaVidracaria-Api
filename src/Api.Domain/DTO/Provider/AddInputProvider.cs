@@ -1,14 +1,13 @@
 ﻿using System;
 
-namespace Api.Domain.Entities.Provider
+namespace Api.Domain.DTO.Provider
 {
-    public class ProviderEntity : BaseEntity
+    public class AddInputProvider
     {
         public string Name { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
-        public string Descripition { get; set;}
+        public string Descripition { get; set; }
         public Guid IdUser { get; set; }
-
     }
 }
