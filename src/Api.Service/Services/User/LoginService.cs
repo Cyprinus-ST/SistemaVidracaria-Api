@@ -55,7 +55,7 @@ namespace Api.Service.Services.User
                 if (user != null && !string.IsNullOrWhiteSpace(user.Email))
                 {
                     user.Password = crp.CriptografarSenha(user.Password);
-                    baseUser = await repository.FindByLoginAndPassword(user.Email, user.Password); ;
+                    baseUser = await repository.FindByLoginAndPassword(user.Email, user.Password);
 
                     if (baseUser == null)
                     {

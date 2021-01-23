@@ -2,6 +2,7 @@
 using Api.Domain.Entities.Plan;
 using Api.Domain.Interfaces.Repository;
 using Api.Domain.Interfaces.Services.Plan;
+using Api.Domain.Interfaces.Services.PlanUser;
 using AutoMapper;
 using System;
 using System.Collections.Generic;
@@ -12,11 +13,13 @@ namespace Api.Service.Services.Plan
     public class PlanService : IPlanService
     {
         public IPlanRepository _repository;
+        public IPlanUserService _planUserService; 
         public IMapper _mapper;
 
-        public PlanService(IPlanRepository repository, IMapper mapper)
+        public PlanService(IPlanRepository repository, IPlanUserService planUserService, IMapper mapper)
         {
             _repository = repository;
+            _planUserService = planUserService;
             _mapper = mapper;
         }
         public async Task<object> AddPlan(AddPlanInput input)
@@ -26,7 +29,7 @@ namespace Api.Service.Services.Plan
                 throw new Exception("Campos inválidos");
             }
 
-            input.Status = "ACTIVE";
+            input.Status = "Ativo";
 
             var entity = new PlanEntity();
             entity.Name = input.Name;
@@ -84,7 +87,12 @@ namespace Api.Service.Services.Plan
                 throw new Exception("Falha ao deletar o plano!");
             }
 
-            await _repository.DeleteAsync(input.ID);
+            if (await _planUserService.ExistUsersinPlan(plan.Id);)
+            {
+                throw new Exception("Falha a oexcluir o plano da base de dados! Existem usuários vinculados a este plano!");
+            }
+
+            await _repository.DeleteAsync(plan.Id);
 
             return new
             {
