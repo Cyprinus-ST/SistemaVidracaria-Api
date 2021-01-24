@@ -3,7 +3,9 @@ using Api.Domain.DTO.Plan;
 using Api.Domain.DTO.User;
 using Api.Domain.Entities.Material;
 using Api.Domain.Entities.Plan;
+using Api.Domain.Entities.Provider;
 using Api.Domain.Entities.User;
+using Api.Domain.DTO.Provider;
 using AutoMapper;
 
 namespace Api.CrossCutting.Mappings
@@ -21,6 +23,13 @@ namespace Api.CrossCutting.Mappings
                 .ReverseMap();
             CreateMap<MaterialEntity, UpdateMaterialInput>()
                 .ReverseMap();
+
+            CreateMap<ProviderEntity, AddInputProvider>()
+                .ReverseMap();
+
+            CreateMap<ProviderEntity, UpdateInputProvider>()
+                .ReverseMap();
+
         }
 
     }

@@ -3,8 +3,11 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Api.Domain.DTO.Provider
 {
-    public class AddInputProvider
+    public class UpdateInputProvider
     {
+        [Required(ErrorMessage = "Id é um campo obrigatório!")]
+        public Guid Id { get; set; }
+
         [Required(ErrorMessage = "Name é um campo obrigatório!")]
         public string Name { get; set; }
 

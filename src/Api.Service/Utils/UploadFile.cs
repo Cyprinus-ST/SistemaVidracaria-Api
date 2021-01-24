@@ -18,7 +18,7 @@ namespace Api.Service.Utils
         /// <summary>
         ///  Método para realizar o upload de arquivos
         /// </summary>
-        /// <param name="destinationFolder"> Pasta aonde o arquivo será salvar considero o caminho padrão src/Files/DestinantionFoleder</param>
+        /// <param name="destinationFolder"> Pasta aonde o arquivo será salvar considero o caminho padrão src/Files/DestinantionFolder</param>
         /// <param name="file"></param>
         /// <param name="idUser"></param>
         /// <param name="fileName"></param>

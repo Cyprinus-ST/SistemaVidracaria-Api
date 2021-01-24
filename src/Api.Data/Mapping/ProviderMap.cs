@@ -23,7 +23,7 @@ namespace Api.Data.Mapping
             builder.Property(m => m.Email)
                 .HasMaxLength(150);
 
-            builder.Property(m => m.Descripition)
+            builder.Property(m => m.Description)
                 .HasMaxLength(350);
 
             builder.Property(m => m.Id)
