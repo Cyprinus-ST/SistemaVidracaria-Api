@@ -33,6 +33,9 @@ namespace Api.Data.Migrations
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
 
+                    b.Property<Guid>("IdUser")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -117,12 +120,12 @@ namespace Api.Data.Migrations
                         new
                         {
                             Id = new Guid("2216f112-4c4e-4fdc-b300-eda19d5de4e4"),
-                            CreateAt = new DateTime(2021, 1, 22, 19, 57, 2, 383, DateTimeKind.Local).AddTicks(817),
+                            CreateAt = new DateTime(2021, 1, 25, 21, 2, 10, 263, DateTimeKind.Local).AddTicks(9755),
                             Description = "Plano Experimental",
                             Installments = 0.0,
                             Name = "Plano Experimental",
                             Status = "Ativo",
-                            UpdateAt = new DateTime(2021, 1, 22, 19, 57, 2, 383, DateTimeKind.Local).AddTicks(828)
+                            UpdateAt = new DateTime(2021, 1, 25, 21, 2, 10, 263, DateTimeKind.Local).AddTicks(9765)
                         });
                 });
 
@@ -168,7 +171,7 @@ namespace Api.Data.Migrations
                     b.Property<DateTime?>("CreateAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Descripition")
+                    b.Property<string>("Description")
                         .HasMaxLength(350)
                         .HasColumnType("nvarchar(350)");
 
@@ -287,11 +290,11 @@ namespace Api.Data.Migrations
                         new
                         {
                             Id = new Guid("bd43824d-95de-4b40-be71-f634b75c47be"),
-                            CreateAt = new DateTime(2021, 1, 22, 19, 57, 2, 380, DateTimeKind.Local).AddTicks(6083),
+                            CreateAt = new DateTime(2021, 1, 25, 21, 2, 10, 261, DateTimeKind.Local).AddTicks(5558),
                             Email = "lucas.vilas@email.com",
                             Name = "Administrador",
                             Password = "123456",
-                            UpdateAt = new DateTime(2021, 1, 22, 19, 57, 2, 381, DateTimeKind.Local).AddTicks(6766)
+                            UpdateAt = new DateTime(2021, 1, 25, 21, 2, 10, 262, DateTimeKind.Local).AddTicks(6028)
                         });
                 });
 #pragma warning restore 612, 618
