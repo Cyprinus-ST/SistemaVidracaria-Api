@@ -34,11 +34,6 @@ namespace Api.Data.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "Plan",
-                columns: new[] { "Id", "CreateAt", "Description", "Name", "Price", "Status", "UpdateAt" },
-                values: new object[] { new Guid("6c1672e5-e014-464f-9148-1598d9b89138"), new DateTime(2021, 1, 19, 22, 2, 14, 757, DateTimeKind.Local).AddTicks(332), "Plano Experimental", "Plano Experimental", 0.0, "Ativo", new DateTime(2021, 1, 19, 22, 2, 14, 757, DateTimeKind.Local).AddTicks(351) });
-
-            migrationBuilder.InsertData(
                 table: "User",
                 columns: new[] { "Id", "CEP", "CPF", "City", "Complement", "Country", "CreateAt", "Email", "Name", "Neighborhood", "Number", "Password", "PathAvatar", "Phone", "State", "Street", "TokenPassword", "Type", "UpdateAt" },
                 values: new object[] { new Guid("f6a57a66-aba7-493c-a0d8-ae24f8aef7e7"), null, null, null, null, null, new DateTime(2021, 1, 19, 22, 2, 14, 754, DateTimeKind.Local).AddTicks(246), "lucas.vilas@email.com", "Administrador", null, null, "123456", null, null, null, null, null, null, new DateTime(2021, 1, 19, 22, 2, 14, 755, DateTimeKind.Local).AddTicks(1901) });

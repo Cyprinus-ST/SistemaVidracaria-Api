@@ -49,6 +49,19 @@ namespace Api.Data.Context
                     UpdateAt = DateTime.Now,
                 }
            );
+
+          modelBuilder.Entity<PlanEntity>().HasData(
+               new PlanEntity
+               {
+                   Id =  Guid.NewGuid(),
+                   Description = "Plano Experimental",
+                   Name = "Plano Experimental",
+                   Installments = 0.00,
+                   Status = "Ativo",
+                   CreateAt = DateTime.Now,
+                   UpdateAt = DateTime.Now,
+               }
+          );
         }
 
     }
