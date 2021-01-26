@@ -8,6 +8,8 @@ using Api.Domain.Interfaces.Services.Material;
 using Api.Service.Services.Material;
 using Api.Domain.Interfaces.Services.PlanUser;
 using Api.Service.Services.PlanUser;
+using Api.Domain.Interfaces.Services.Provider;
+using Api.Service.Services.Provider;
 
 namespace Api.CrossCutting.DependencyInjection
 {
@@ -21,6 +23,7 @@ namespace Api.CrossCutting.DependencyInjection
             serviceCollection.AddTransient<IPlanService, PlanService>();
             serviceCollection.AddTransient<IMaterialService, MaterialService>();
             serviceCollection.AddTransient<IPlanUserService, PlanUserService>();
+            serviceCollection.AddTransient<IProviderService, ProviderService>();
         }
     }
 }
