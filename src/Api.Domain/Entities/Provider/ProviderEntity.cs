@@ -1,11 +1,14 @@
-﻿namespace Api.Domain.Entities.Provider
+﻿using System;
+
+namespace Api.Domain.Entities.Provider
 {
     public class ProviderEntity : BaseEntity
     {
         public string Name { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
-        public string Descripition { get; set;}
+        public string Description { get; set;}
+        public Guid IdUser { get; set; }
 
     }
 }

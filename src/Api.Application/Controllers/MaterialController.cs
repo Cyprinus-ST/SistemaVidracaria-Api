@@ -59,6 +59,7 @@ namespace Api.Application.Controllers
             }
         }
 
+        [Authorize("Bearer")]
         [HttpGet]
         [Route("{id}")]
         public async Task<object> GetMaterial([FromRoute] Guid id, [FromServices] IMaterialService service)
@@ -81,6 +82,7 @@ namespace Api.Application.Controllers
             }
         }
 
+        [Authorize("Bearer")]
         [HttpPut]
         public async Task<object> UpdateMaterial([FromBody] UpdateMaterialInput Material,[FromServices] IMaterialService service)
         {
@@ -102,6 +104,7 @@ namespace Api.Application.Controllers
             }
         }
 
+        [Authorize("Bearer")]
         [HttpDelete]
         public async Task<object> DeleteMaterial([FromQuery] Guid id, [FromServices] IMaterialService service)
         {

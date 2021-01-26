@@ -25,11 +25,6 @@ namespace Api.Data.Migrations
                 defaultValue: new Guid("00000000-0000-0000-0000-000000000000"));
 
             migrationBuilder.InsertData(
-                table: "Plan",
-                columns: new[] { "Id", "CreateAt", "Description", "Name", "Price", "Status", "UpdateAt" },
-                values: new object[] { new Guid("2216f112-4c4e-4fdc-b300-eda19d5de4e4"), new DateTime(2021, 1, 20, 22, 15, 54, 100, DateTimeKind.Local).AddTicks(683), "Plano Experimental", "Plano Experimental", 0.0, "Ativo", new DateTime(2021, 1, 20, 22, 15, 54, 100, DateTimeKind.Local).AddTicks(695) });
-
-            migrationBuilder.InsertData(
                 table: "User",
                 columns: new[] { "Id", "CEP", "CPF", "City", "Complement", "Country", "CreateAt", "Email", "Name", "Neighborhood", "Number", "Password", "PathAvatar", "Phone", "State", "Street", "TokenPassword", "Type", "UpdateAt" },
                 values: new object[] { new Guid("d767ebd4-ae18-4435-8c79-55822ed7301c"), null, null, null, null, null, new DateTime(2021, 1, 20, 22, 15, 54, 97, DateTimeKind.Local).AddTicks(6138), "lucas.vilas@email.com", "Administrador", null, null, "123456", null, null, null, null, null, null, new DateTime(2021, 1, 20, 22, 15, 54, 98, DateTimeKind.Local).AddTicks(6396) });

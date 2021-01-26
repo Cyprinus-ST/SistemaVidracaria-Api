@@ -32,7 +32,7 @@ namespace Api.Service.Services.Material
                 {
                     return new
                     {
-                        valid = "true",
+                        valid = true,
                         message = "Material cadastrado com sucesso!"
                     };
 

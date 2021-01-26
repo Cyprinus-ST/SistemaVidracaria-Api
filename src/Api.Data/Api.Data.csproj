@@ -19,7 +19,6 @@
 
   <ItemGroup>
     <Folder Include="Implementations\Costumer\" />
-    <Folder Include="Implementations\Provider\" />
   </ItemGroup>
 
 

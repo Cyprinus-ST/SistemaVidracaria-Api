@@ -92,14 +92,14 @@ namespace Api.Data.Migrations
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
+                    b.Property<double>("Installments")
+                        .HasMaxLength(100)
+                        .HasColumnType("float");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
-
-                    b.Property<double>("Price")
-                        .HasMaxLength(100)
-                        .HasColumnType("float");
 
                     b.Property<string>("Status")
                         .IsRequired()
@@ -117,12 +117,22 @@ namespace Api.Data.Migrations
                         new
                         {
                             Id = new Guid("2216f112-4c4e-4fdc-b300-eda19d5de4e4"),
-                            CreateAt = new DateTime(2021, 1, 20, 22, 15, 54, 100, DateTimeKind.Local).AddTicks(683),
+                            CreateAt = new DateTime(2021, 1, 25, 22, 8, 37, 235, DateTimeKind.Local).AddTicks(1327),
                             Description = "Plano Experimental",
+                            Installments = 0.0,
                             Name = "Plano Experimental",
-                            Price = 0.0,
                             Status = "Ativo",
-                            UpdateAt = new DateTime(2021, 1, 20, 22, 15, 54, 100, DateTimeKind.Local).AddTicks(695)
+                            UpdateAt = new DateTime(2021, 1, 25, 22, 8, 37, 235, DateTimeKind.Local).AddTicks(1343)
+                        },
+                        new
+                        {
+                            Id = new Guid("6325a89c-4297-415e-bd8f-3cdcf830c435"),
+                            CreateAt = new DateTime(2021, 1, 25, 22, 8, 37, 235, DateTimeKind.Local).AddTicks(1528),
+                            Description = "Plano Experimental",
+                            Installments = 0.0,
+                            Name = "Plano Experimental",
+                            Status = "Ativo",
+                            UpdateAt = new DateTime(2021, 1, 25, 22, 8, 37, 235, DateTimeKind.Local).AddTicks(1530)
                         });
                 });
 
@@ -168,13 +178,16 @@ namespace Api.Data.Migrations
                     b.Property<DateTime?>("CreateAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Descripition")
+                    b.Property<string>("Description")
                         .HasMaxLength(350)
                         .HasColumnType("nvarchar(350)");
 
                     b.Property<string>("Email")
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
+
+                    b.Property<Guid>("IdUser")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -283,12 +296,12 @@ namespace Api.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("d767ebd4-ae18-4435-8c79-55822ed7301c"),
-                            CreateAt = new DateTime(2021, 1, 20, 22, 15, 54, 97, DateTimeKind.Local).AddTicks(6138),
+                            Id = new Guid("bd43824d-95de-4b40-be71-f634b75c47be"),
+                            CreateAt = new DateTime(2021, 1, 25, 22, 8, 37, 232, DateTimeKind.Local).AddTicks(6241),
                             Email = "lucas.vilas@email.com",
                             Name = "Administrador",
                             Password = "123456",
-                            UpdateAt = new DateTime(2021, 1, 20, 22, 15, 54, 98, DateTimeKind.Local).AddTicks(6396)
+                            UpdateAt = new DateTime(2021, 1, 25, 22, 8, 37, 233, DateTimeKind.Local).AddTicks(6858)
                         });
                 });
 #pragma warning restore 612, 618
