@@ -6,8 +6,8 @@ namespace Api.Data.Context
     public class ContextFactory : IDesignTimeDbContextFactory<MyContext>
     {
         public MyContext CreateDbContext(string[] args)
-        {   //Conexão Caio
-            var connectionString = "Data Source=DPCCAIODUARTE\\SQLEXPRESS; Initial Catalog = db_vidracaria; Integrated Security = False;User ID = sa; Password = x;";
+        {   //Conexão Caios
+            var connectionString = "Password=x;Persist Security Info=True;User ID=sa;Initial Catalog=db_vidracaria3;Data Source=DESKTOP-TI83OVD\\SQLEXPRESS";
             //Conexão Vilas
             //var connectionString = "Server=127.0.0.1;Database=db_vidracaria;User Id=sa;Password=123456;";
             var optionsBuilder = new DbContextOptionsBuilder<MyContext>();
@@ -17,3 +17,5 @@ namespace Api.Data.Context
         }
     }
 }
+
+

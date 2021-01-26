@@ -20,7 +20,7 @@ namespace Api.CrossCutting.DependencyInjection
             serviceCollection.AddScoped<IMaterialRepository, MaterialImplementation>();
 
             serviceCollection.AddDbContext<MyContext>(
-                    options => options.UseSqlServer("Data Source=DPCCAIODUARTE\\SQLEXPRESS; Initial Catalog = db_vidracaria; Integrated Security = False;User ID=sa; Password=x;")
+                    options => options.UseSqlServer("Password=x;Persist Security Info=True;User ID=sa;Initial Catalog=db_vidracaria3;Data Source=DESKTOP-TI83OVD\\SQLEXPRESS")
             );
 
             //serviceCollection.AddDbContext<MyContext>(
