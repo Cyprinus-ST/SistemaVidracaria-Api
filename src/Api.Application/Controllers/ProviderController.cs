@@ -1,5 +1,4 @@
 ﻿using Api.Domain.DTO.Provider;
-using Api.Domain.Interfaces.Services.Material;
 using Api.Domain.Interfaces.Services.Provider;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

@@ -27,7 +27,7 @@ namespace Api.Service.Utils
         {
             try
             {
-
+               
                 string serverPath = Configuration["PathFile"];
 
                 serverPath = serverPath + "/" + idUser + "/" + destinationFolder;
