@@ -10,6 +10,7 @@ namespace Api.Domain.Model.Provider
         public string Phone { get; set; }
         public string Description { get; set;}
         public Guid IdUser { get; set; }
-
+        public DateTime CreateAt { get; set; }
+        public DateTime UpdateAt { get; set; }
     }
 }
