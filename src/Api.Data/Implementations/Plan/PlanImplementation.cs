@@ -4,6 +4,7 @@ using Api.Domain.Entities.Plan;
 using Api.Domain.Interfaces.Repository;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Api.Data.Implementations.Plan
