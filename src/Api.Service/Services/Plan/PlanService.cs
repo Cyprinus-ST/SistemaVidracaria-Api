@@ -51,7 +51,16 @@ namespace Api.Service.Services.Plan
             try
             {
                 IEnumerable<PlanEntity> listResult = await _repository.SelectAsync();
-                var listPlan = _mapper.Map<IEnumerable<PlanDTO>>(listResult);
+                List<PlanEntity> filtredList = new List<PlanEntity>();
+                foreach(var plan in listResult)
+                {
+                    if(plan.Id != Guid.Parse("6325A89C-4297-415E-BD8F-3CDCF830C435"))
+                    {
+                        filtredList.Add(plan);
+                                     
+                    }
+                }
+                var listPlan = _mapper.Map<IEnumerable<PlanDTO>>(filtredList);
                 return listPlan;
             } catch(Exception e){
                 throw e;
