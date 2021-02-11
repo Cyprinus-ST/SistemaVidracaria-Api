@@ -117,22 +117,22 @@ namespace Api.Data.Migrations
                         new
                         {
                             Id = new Guid("2216f112-4c4e-4fdc-b300-eda19d5de4e4"),
-                            CreateAt = new DateTime(2021, 1, 25, 22, 8, 37, 235, DateTimeKind.Local).AddTicks(1327),
+                            CreateAt = new DateTime(2021, 2, 10, 20, 27, 33, 544, DateTimeKind.Local).AddTicks(2901),
                             Description = "Plano Experimental",
                             Installments = 0.0,
                             Name = "Plano Experimental",
                             Status = "Ativo",
-                            UpdateAt = new DateTime(2021, 1, 25, 22, 8, 37, 235, DateTimeKind.Local).AddTicks(1343)
+                            UpdateAt = new DateTime(2021, 2, 10, 20, 27, 33, 544, DateTimeKind.Local).AddTicks(2909)
                         },
                         new
                         {
-                            Id = new Guid("6325a89c-4297-415e-bd8f-3cdcf830c435"),
-                            CreateAt = new DateTime(2021, 1, 25, 22, 8, 37, 235, DateTimeKind.Local).AddTicks(1528),
+                            Id = new Guid("1aa6b613-2e5c-4024-bdb6-165cb0fc6d8b"),
+                            CreateAt = new DateTime(2021, 2, 10, 20, 27, 33, 544, DateTimeKind.Local).AddTicks(3124),
                             Description = "Plano Experimental",
                             Installments = 0.0,
                             Name = "Plano Experimental",
                             Status = "Ativo",
-                            UpdateAt = new DateTime(2021, 1, 25, 22, 8, 37, 235, DateTimeKind.Local).AddTicks(1530)
+                            UpdateAt = new DateTime(2021, 2, 10, 20, 27, 33, 544, DateTimeKind.Local).AddTicks(3126)
                         });
                 });
 
@@ -167,6 +167,150 @@ namespace Api.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("PlanUser");
+                });
+
+            modelBuilder.Entity("Api.Domain.Entities.Project.ProjectEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("CreateAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Descripition")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("IdUser")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("NumberGlass")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProjectType")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<DateTime?>("UpdateAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Project");
+                });
+
+            modelBuilder.Entity("Api.Domain.Entities.Project.ProjectTypeEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("Type")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ProjectType");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Type = "Janela"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Type = "Porta"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Type = "Fixo"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Type = "Box"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Type = "Fechamento de Pia"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Type = "Espelho"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Type = "Bascula/Maxian-ar"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Type = "Guarda-Corpo"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Type = "Portas Staley"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Type = "Janelas Staley"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Type = "Reposição"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Type = "Versatik kits"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Type = "Slide Door"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Type = "Projeto Personalizado"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Type = "Portas Retráteis"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            Type = "Ideia Glass"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            Type = "Sacadas"
+                        },
+                        new
+                        {
+                            Id = 99,
+                            Type = "Não selecionar"
+                        });
                 });
 
             modelBuilder.Entity("Api.Domain.Entities.Provider.ProviderEntity", b =>
@@ -297,11 +441,11 @@ namespace Api.Data.Migrations
                         new
                         {
                             Id = new Guid("bd43824d-95de-4b40-be71-f634b75c47be"),
-                            CreateAt = new DateTime(2021, 1, 25, 22, 8, 37, 232, DateTimeKind.Local).AddTicks(6241),
+                            CreateAt = new DateTime(2021, 2, 10, 20, 27, 33, 541, DateTimeKind.Local).AddTicks(9328),
                             Email = "lucas.vilas@email.com",
                             Name = "Administrador",
                             Password = "123456",
-                            UpdateAt = new DateTime(2021, 1, 25, 22, 8, 37, 233, DateTimeKind.Local).AddTicks(6858)
+                            UpdateAt = new DateTime(2021, 2, 10, 20, 27, 33, 542, DateTimeKind.Local).AddTicks(9628)
                         });
                 });
 #pragma warning restore 612, 618

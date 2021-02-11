@@ -1,4 +1,5 @@
-﻿using Api.Domain.Interfaces.Services.Project;
+﻿using Api.Domain.DTO.Project;
+using Api.Domain.Interfaces.Services.Project;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -13,7 +14,7 @@ namespace Api.Application.Controllers
     {
         [HttpPost]
         [Route("uploadFile")]
-        public async Task<object> UploadFile([FromForm] IFormFile file, [FromForm] Guid idProject, [FromServices]IProjectService service)
+        public async Task<object> UploadFile([FromForm] IFormFile file, [FromForm] Guid idProject, [FromForm] Guid idUser,[FromServices]IProjectService service)
         {
             try
             {
@@ -26,7 +27,7 @@ namespace Api.Application.Controllers
                 }
                 else
                 {
-                    var result = await service.UploadFile(file, idProject);
+                    var result = await service.UploadFile(file, idProject, idUser);
 
                     if (result != null)
                     {
@@ -44,5 +45,37 @@ namespace Api.Application.Controllers
                 throw;
             }
         }
+
+        [HttpPost]
+        public async Task<object> AddProject([FromBody] AddProjectInput Project,[FromServices] IProjectService service)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+                else
+                {
+                    var result = await service.AddProject(Project);
+
+                    if (result != null)
+                    {
+                        return Ok(result);
+                    }
+                    else
+                    {
+                        return BadRequest("Ocorreu um erro ao tentar cadastrar o projeto!");
+                    }
+                }
+
+            }
+            catch (Exception e)
+            {
+
+                return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
+            }
+        }
+
     }
 }

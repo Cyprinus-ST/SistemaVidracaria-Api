@@ -2,6 +2,7 @@
 using Api.Domain.Entities.Costumer;
 using Api.Domain.Entities.Material;
 using Api.Domain.Entities.Plan;
+using Api.Domain.Entities.Project;
 using Api.Domain.Entities.Provider;
 using Api.Domain.Entities.User;
 using Microsoft.EntityFrameworkCore;
@@ -23,7 +24,8 @@ namespace Api.Data.Context
             modelBuilder.Entity<MaterialEntity>(new MaterialMap().Configure);
             modelBuilder.Entity<CostumerEntity>(new CostumerMap().Configure);
             modelBuilder.Entity<ProviderEntity>(new ProviderMap().Configure);
-
+            modelBuilder.Entity<ProjectEntity>(new ProjectMap().Configure);
+            modelBuilder.Entity<ProjectTypeEntity>(new ProjectTypeMap().Configure);
 
             modelBuilder.Entity<UserEntity>().HasData(
                 new UserEntity
@@ -48,20 +50,167 @@ namespace Api.Data.Context
                     CreateAt = DateTime.Now,
                     UpdateAt = DateTime.Now,
                 }
-           );
+            );
 
-          modelBuilder.Entity<PlanEntity>().HasData(
-               new PlanEntity
-               {
-                   Id =  Guid.NewGuid(),
-                   Description = "Plano Experimental",
-                   Name = "Plano Experimental",
-                   Installments = 0.00,
-                   Status = "Ativo",
-                   CreateAt = DateTime.Now,
-                   UpdateAt = DateTime.Now,
-               }
-          );
+            modelBuilder.Entity<PlanEntity>().HasData(
+                 new PlanEntity
+                 {
+                     Id = Guid.NewGuid(),
+                     Description = "Plano Experimental",
+                     Name = "Plano Experimental",
+                     Installments = 0.00,
+                     Status = "Ativo",
+                     CreateAt = DateTime.Now,
+                     UpdateAt = DateTime.Now,
+                 }
+             );
+
+            #region Add Project Type
+
+            modelBuilder.Entity<ProjectTypeEntity>().HasData(
+            new ProjectTypeEntity
+            {
+                Id = 1,
+                Type = "Janela"
+            }
+            );
+
+            modelBuilder.Entity<ProjectTypeEntity>().HasData(
+            new ProjectTypeEntity
+            {
+                Id = 2,
+                Type = "Porta"
+            }
+            );
+
+            modelBuilder.Entity<ProjectTypeEntity>().HasData(
+            new ProjectTypeEntity
+            {
+                Id = 3,
+                Type = "Fixo"
+            }
+            );
+            
+            modelBuilder.Entity<ProjectTypeEntity>().HasData(
+            new ProjectTypeEntity
+            {
+                Id = 4,
+                Type = "Box"
+            }
+            );
+            
+            modelBuilder.Entity<ProjectTypeEntity>().HasData(
+            new ProjectTypeEntity
+            {
+                Id = 5,
+                Type = "Fechamento de Pia"
+            }
+            );
+
+            modelBuilder.Entity<ProjectTypeEntity>().HasData(
+            new ProjectTypeEntity
+            {
+                Id = 6,
+                Type = "Espelho"
+            }
+            );
+
+            modelBuilder.Entity<ProjectTypeEntity>().HasData(
+            new ProjectTypeEntity
+            {
+                Id = 7,
+                Type = "Bascula/Maxian-ar"
+            }
+            );
+
+            modelBuilder.Entity<ProjectTypeEntity>().HasData(
+            new ProjectTypeEntity
+            {
+                Id = 8,
+                Type = "Guarda-Corpo"
+            }
+            );
+
+            modelBuilder.Entity<ProjectTypeEntity>().HasData(
+            new ProjectTypeEntity
+            {
+                Id = 9,
+                Type = "Portas Staley"
+            }
+            );
+
+            modelBuilder.Entity<ProjectTypeEntity>().HasData(
+            new ProjectTypeEntity
+            {
+                Id = 10,
+                Type = "Janelas Staley"
+            }
+            );
+
+            modelBuilder.Entity<ProjectTypeEntity>().HasData(
+            new ProjectTypeEntity
+            {
+                Id = 11,
+                Type = "Reposição"
+            }
+            );
+
+            modelBuilder.Entity<ProjectTypeEntity>().HasData(
+            new ProjectTypeEntity
+            {
+                Id = 12,
+                Type = "Versatik kits"
+            }
+            );
+
+            modelBuilder.Entity<ProjectTypeEntity>().HasData(
+            new ProjectTypeEntity
+            {
+                Id = 13,
+                Type = "Slide Door"
+            }
+            );
+
+            modelBuilder.Entity<ProjectTypeEntity>().HasData(
+            new ProjectTypeEntity
+            {
+                Id = 14,
+                Type = "Projeto Personalizado"
+            }
+            );
+
+            modelBuilder.Entity<ProjectTypeEntity>().HasData(
+            new ProjectTypeEntity
+            {
+                Id = 15,
+                Type = "Portas Retráteis"
+            }
+            );
+
+            modelBuilder.Entity<ProjectTypeEntity>().HasData(
+            new ProjectTypeEntity
+            {
+                Id = 16,
+                Type = "Ideia Glass"
+            }
+            );
+            
+            modelBuilder.Entity<ProjectTypeEntity>().HasData(
+            new ProjectTypeEntity
+            {
+                Id = 17,
+                Type = "Sacadas"
+            }
+            );
+            modelBuilder.Entity<ProjectTypeEntity>().HasData(
+            new ProjectTypeEntity
+            {
+                Id = 99,
+                Type = "Não selecionar"
+            }
+            );
+            #endregion
+
         }
 
     }
