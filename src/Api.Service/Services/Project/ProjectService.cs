@@ -28,6 +28,7 @@ namespace Api.Service.Services.Project
         {
             UploadFile up = new UploadFile(configuration);
             DateTime moment = DateTime.Now;
+            ProjectEntity project = new ProjectEntity();
 
             try
             {
@@ -36,12 +37,18 @@ namespace Api.Service.Services.Project
                     string fileName = moment.Millisecond.ToString() + file.FileName;
                     string path = await up.Upload($"ProjectFiles/{idProject}", file, idUser, fileName);
 
-                    return new
+                    if (!string.IsNullOrEmpty(path))
                     {
-                        valid = true,
-                        message = "Upload feito com sucesso!",
-                        path = path
-                    };
+                        project = await repository.SelectAsync(idProject);
+                        project.ImageUrl = path;
+                        var update = mapper.Map<UpdateProjectInput>(project);
+                        return await UpdateProject(update);
+                    }
+                    else
+                    {
+                        throw new Exception("Não foi possível salvar o arquivo!");
+                    }
+
                 }
                 else
                 {
@@ -100,6 +107,46 @@ namespace Api.Service.Services.Project
             catch (Exception)
             {
 
+                throw;
+            }
+        }
+
+        public async Task<object> UpdateProject(UpdateProjectInput Project)
+        {
+            try
+            {
+                var project = await repository.SelectAsync(Project.Id);
+
+                if (project == null)
+                    throw new Exception("Não foi encontrado esse projeto na nossa base de dados!");
+                
+                var entity = mapper.Map<ProjectEntity>(Project);
+                await repository.UpdateAsync(entity);
+
+                return new
+                {
+                    valid = true,
+                    message = "Projeto salvo com sucesso!"
+                };
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public async Task<object> ListProjectFiltered(FilterProject filter)
+        {
+            try
+            {
+                var result = await repository.FindProjectFiltered(filter);
+
+                return result;
+
+            }
+            catch (Exception ex)
+            {
                 throw;
             }
         }

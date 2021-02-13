@@ -1,4 +1,5 @@
-﻿using Api.Domain.Entities.Project;
+﻿using Api.Domain.DTO.Project;
+using Api.Domain.Entities.Project;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -8,5 +9,6 @@ namespace Api.Domain.Interfaces.Repository
     {
         Task<List<ProjectTypeEntity>> ListProjectType();
         Task<ProjectTypeEntity> FindProjectType(int Id);
+        Task<List<ProjectEntity>> FindProjectFiltered(FilterProject filter);
     }
 }

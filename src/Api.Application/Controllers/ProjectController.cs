@@ -1,5 +1,6 @@
 ﻿using Api.Domain.DTO.Project;
 using Api.Domain.Interfaces.Services.Project;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -12,6 +13,7 @@ namespace Api.Application.Controllers
     [ApiController]
     public class ProjectController : ControllerBase
     {
+        //[Authorize("Bearer")]
         [HttpPost]
         [Route("uploadFile")]
         public async Task<object> UploadFile([FromForm] IFormFile file, [FromForm] Guid idProject, [FromForm] Guid idUser,[FromServices]IProjectService service)
@@ -46,6 +48,7 @@ namespace Api.Application.Controllers
             }
         }
 
+        [Authorize("Bearer")]
         [HttpPost]
         public async Task<object> AddProject([FromBody] AddProjectInput Project,[FromServices] IProjectService service)
         {
@@ -77,5 +80,50 @@ namespace Api.Application.Controllers
             }
         }
 
+        [Authorize("Bearer")]
+        [HttpPut]
+        public async Task<object> UpdateProject([FromBody] UpdateProjectInput Project, [FromServices] IProjectService service)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+                else
+                {
+                    var result = await service.UpdateProject(Project);
+                    return Ok(result);
+                }
+            }
+            catch (Exception e)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
+            }
+        }
+
+        [HttpPost]
+        [Route("ListFiltered")]
+        public async Task<object> ListProjectsFiltered([FromBody] FilterProject filter, [FromServices] IProjectService service)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+                else
+                {
+                    var result = await service.ListProjectFiltered(filter);
+                    return Ok(result);
+                }
+             
+            }
+            catch (Exception e)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
+            }
+
+        }
     }
 }

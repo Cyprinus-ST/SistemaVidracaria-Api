@@ -34,6 +34,9 @@ namespace Api.CrossCutting.Mappings
 
             CreateMap<ProjectEntity, AddProjectInput>()
                 .ReverseMap();
+
+            CreateMap<ProjectEntity, UpdateProjectInput>()
+                .ReverseMap();
         }
 
     }
