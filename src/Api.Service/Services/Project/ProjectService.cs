@@ -136,17 +136,72 @@ namespace Api.Service.Services.Project
             }
         }
 
-        public async Task<object> ListProjectFiltered(FilterProject filter)
+        public object ListProjectFiltered(FilterProjectDTO filter)
         {
             try
             {
-                var result = await repository.FindProjectFiltered(filter);
+                var result = repository.FindProjectFiltered(filter, out int pages);
 
-                return result;
+                return new
+                {
+                    data = result,
+                    pages = pages,
+                    actualPage = filter.Page
+                };
 
             }
             catch (Exception ex)
             {
+                throw;
+            }
+        }
+
+        public async Task<object> GetProject(Guid id)
+        {
+            try
+            {
+                var result = await repository.SelectAsync(id);
+                if (result != null)
+                {
+                    return new
+                    {
+                        valid = true,
+                        result
+                    };
+                }
+                else
+                {
+                    throw new Exception("Não encontramos nenhum projeto com esse registro!");
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public async Task<object> GetProjectType()
+        {
+            try
+            {
+                var result = await repository.ListProjectType();
+                if (result != null)
+                {
+                    return new
+                    {
+                        valid = true,
+                        result
+                    };
+                }
+                else
+                {
+                    throw new Exception("Não encontramos tipo de projeto!");
+                }
+            }
+            catch (Exception)
+            {
+
                 throw;
             }
         }

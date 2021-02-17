@@ -10,6 +10,8 @@ namespace Api.Domain.Interfaces.Services.Project
         Task<object> UploadFile(IFormFile file, Guid idProject,Guid idUser);
         Task<object> AddProject(AddProjectInput project);
         Task<object> UpdateProject(UpdateProjectInput project);
-        Task<object> ListProjectFiltered(FilterProject filter);
+        object ListProjectFiltered(FilterProjectDTO filter);
+        Task<object> GetProject(Guid id);
+        Task<object> GetProjectType();
     }
 }

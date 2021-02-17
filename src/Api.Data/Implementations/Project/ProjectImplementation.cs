@@ -32,7 +32,7 @@ namespace Api.Data.Implementations.Project
             return await ProjectType.FirstOrDefaultAsync(p => p.Id.Equals(Id));
         }
 
-        public async Task<List<ProjectEntity>> FindProjectFiltered(FilterProject filter)
+        public List<ProjectEntity> FindProjectFiltered(FilterProjectDTO filter, out int pages)
         {
             try
             {
@@ -52,16 +52,22 @@ namespace Api.Data.Implementations.Project
                 if (filter.Start != 0)
                     query = query.Skip(filter.Start);
 
+                
                 if (filter.MaxResults != 0 && filter.Page == 0)
+                {
+                    pages = query.Count()/ filter.MaxResults;
                     query = query.Take(filter.MaxResults);
+                }
                 else
                 {
                     if (filter.MaxResults == 0)
                         filter.MaxResults = 10;
 
+                    pages = query.Count() / filter.MaxResults;
                     query = query.Skip(filter.MaxResults * filter.Page);
                 }
 
+         
                 List<ProjectEntity> listProjects = query.ToList();
 
                 return listProjects;

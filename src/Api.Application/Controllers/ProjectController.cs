@@ -13,7 +13,7 @@ namespace Api.Application.Controllers
     [ApiController]
     public class ProjectController : ControllerBase
     {
-        //[Authorize("Bearer")]
+        [Authorize("Bearer")]
         [HttpPost]
         [Route("uploadFile")]
         public async Task<object> UploadFile([FromForm] IFormFile file, [FromForm] Guid idProject, [FromForm] Guid idUser,[FromServices]IProjectService service)
@@ -102,9 +102,10 @@ namespace Api.Application.Controllers
             }
         }
 
+        [Authorize("Bearer")]
         [HttpPost]
         [Route("ListFiltered")]
-        public async Task<object> ListProjectsFiltered([FromBody] FilterProject filter, [FromServices] IProjectService service)
+        public object ListProjectsFiltered([FromBody] FilterProjectDTO filter, [FromServices] IProjectService service)
         {
             try
             {
@@ -114,7 +115,7 @@ namespace Api.Application.Controllers
                 }
                 else
                 {
-                    var result = await service.ListProjectFiltered(filter);
+                    var result = service.ListProjectFiltered(filter);
                     return Ok(result);
                 }
              
@@ -125,5 +126,45 @@ namespace Api.Application.Controllers
             }
 
         }
+
+        [HttpGet]
+        [Route("{id}")]
+        [Authorize("Bearer")]
+        public async Task<object> GetProject([FromRoute] Guid id, [FromServices] IProjectService service)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            try
+            {
+                return Ok(await service.GetProject(id));
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e);
+            }
+        }
+
+        [HttpGet]
+        [Route("ProjectType")]
+        public async Task<object> GetProjectType([FromServices] IProjectService service)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            try
+            {
+                return Ok(await service.GetProjectType());
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e);
+            }
+        }
+
     }
 }

@@ -52,19 +52,6 @@ namespace Api.Data.Context
                 }
             );
 
-            modelBuilder.Entity<PlanEntity>().HasData(
-                 new PlanEntity
-                 {
-                     Id = Guid.NewGuid(),
-                     Description = "Plano Experimental",
-                     Name = "Plano Experimental",
-                     Installments = 0.00,
-                     Status = "Ativo",
-                     CreateAt = DateTime.Now,
-                     UpdateAt = DateTime.Now,
-                 }
-             );
-
             #region Add Project Type
 
             modelBuilder.Entity<ProjectTypeEntity>().HasData(

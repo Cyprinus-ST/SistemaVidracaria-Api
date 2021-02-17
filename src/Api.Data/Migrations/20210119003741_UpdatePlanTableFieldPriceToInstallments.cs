@@ -17,10 +17,6 @@ namespace Api.Data.Migrations
                 table: "Plan",
                 newName: "Installments");
 
-            migrationBuilder.InsertData(
-                table: "User",
-                columns: new[] { "Id", "CEP", "CPF", "City", "Complement", "Country", "CreateAt", "Email", "Name", "Neighborhood", "Number", "Password", "PathAvatar", "Phone", "State", "Street", "TokenPassword", "Type", "UpdateAt" },
-                values: new object[] { new Guid("e4b46452-9266-4084-9b5b-99d32615de69"), null, null, null, null, null, new DateTime(2021, 1, 18, 21, 37, 41, 173, DateTimeKind.Local).AddTicks(8035), "lucas.vilas@email.com", "Administrador", null, null, "123456", null, null, null, null, null, null, new DateTime(2021, 1, 18, 21, 37, 41, 175, DateTimeKind.Local).AddTicks(7700) });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

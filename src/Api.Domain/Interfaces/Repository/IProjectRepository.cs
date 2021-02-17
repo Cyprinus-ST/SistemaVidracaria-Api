@@ -9,6 +9,6 @@ namespace Api.Domain.Interfaces.Repository
     {
         Task<List<ProjectTypeEntity>> ListProjectType();
         Task<ProjectTypeEntity> FindProjectType(int Id);
-        Task<List<ProjectEntity>> FindProjectFiltered(FilterProject filter);
+        List<ProjectEntity> FindProjectFiltered(FilterProjectDTO filter, out int pages);
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Api.Domain.DTO.Project
 {
-    public class FilterProject
+    public class FilterProjectDTO
     {
         public int Start { get; set;}
         public int MaxResults { get; set; }
