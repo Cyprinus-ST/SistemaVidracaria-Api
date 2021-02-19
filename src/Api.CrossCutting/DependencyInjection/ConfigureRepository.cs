@@ -28,7 +28,7 @@ namespace Api.CrossCutting.DependencyInjection
             //);
 
             serviceCollection.AddDbContext<MyContext>(
-                    options => options.UseSqlServer("server=127.0.0.1;database=db_vidracaria1;user id=sa;password=123456;")
+                    options => options.UseSqlServer("server=127.0.0.1;database=db_vidracaria;user id=sa;password=123456;")
             );
         }
     }

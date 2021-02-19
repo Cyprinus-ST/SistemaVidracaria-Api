@@ -16,6 +16,7 @@ namespace Api.Data.Implementations.Project
         private DbSet<ProjectEntity> Project;
         private DbSet<ProjectTypeEntity> ProjectType;
 
+
         public ProjectImplementation(MyContext context) : base(context)
         {
             Project = context.Set<ProjectEntity>();
@@ -34,6 +35,8 @@ namespace Api.Data.Implementations.Project
 
         public List<ProjectEntity> FindProjectFiltered(FilterProjectDTO filter, out int pages)
         {
+            const int NaoSelecionar = 99;
+
             try
             {
 
@@ -43,7 +46,7 @@ namespace Api.Data.Implementations.Project
                 if (!string.IsNullOrEmpty(filter.Title))
                     query = query.Where(p => p.Title.Contains(filter.Title));
 
-                if (filter.ProjectType != 0)
+                if (filter.ProjectType != 0  && filter.ProjectType != NaoSelecionar)
                     query = query.Where(p => p.ProjectType.Equals(filter.ProjectType));
 
                 if (filter.NumberGlass != 0)
