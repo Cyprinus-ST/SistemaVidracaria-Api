@@ -78,7 +78,7 @@ namespace Api.Service.Services.Project
 
                 if (string.IsNullOrEmpty(entity.ImageUrl))
                 {
-                    entity.ImageUrl = "Implementar imagem";
+                    entity.ImageUrl = "sem_imagem.jpg";
                 }
 
                 var projectType = await repository.FindProjectType(entity.ProjectType);
@@ -95,7 +95,8 @@ namespace Api.Service.Services.Project
                     return new
                     {
                         valid = true,
-                        message = "Projeto cadastrado com sucesso!"
+                        message = "Projeto cadastrado com sucesso!",
+                        idProject = result.Id
                     };
 
                 }
