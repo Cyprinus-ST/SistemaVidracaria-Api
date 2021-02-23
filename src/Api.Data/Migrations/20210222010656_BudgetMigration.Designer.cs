@@ -4,50 +4,22 @@ using Api.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Api.Data.Migrations
 {
     [DbContext(typeof(MyContext))]
-    partial class MyContextModelSnapshot : ModelSnapshot
+    [Migration("20210222010656_BudgetMigration")]
+    partial class BudgetMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .UseIdentityColumns()
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.1");
-
-            modelBuilder.Entity("Api.Domain.Entities.Budget.BudgetEntity", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("CreateAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .HasMaxLength(300)
-                        .HasColumnType("nvarchar(300)");
-
-                    b.Property<Guid>("IdCostumer")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("IdProject")
-                        .HasColumnType("int");
-
-                    b.Property<Guid>("IdUser")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("UpdateAt")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Budget");
-                });
 
             modelBuilder.Entity("Api.Domain.Entities.Costumer.CostumerEntity", b =>
                 {
@@ -147,12 +119,12 @@ namespace Api.Data.Migrations
                         new
                         {
                             Id = new Guid("2216f112-4c4e-4fdc-b300-eda19d5de4e4"),
-                            CreateAt = new DateTime(2021, 2, 21, 22, 8, 50, 135, DateTimeKind.Local).AddTicks(6744),
+                            CreateAt = new DateTime(2021, 2, 21, 22, 6, 56, 210, DateTimeKind.Local).AddTicks(7797),
                             Description = "Plano Experimental",
                             Installments = 0.0,
                             Name = "Plano Experimental",
                             Status = "Ativo",
-                            UpdateAt = new DateTime(2021, 2, 21, 22, 8, 50, 135, DateTimeKind.Local).AddTicks(6755)
+                            UpdateAt = new DateTime(2021, 2, 21, 22, 6, 56, 210, DateTimeKind.Local).AddTicks(7806)
                         });
                 });
 
@@ -461,11 +433,11 @@ namespace Api.Data.Migrations
                         new
                         {
                             Id = new Guid("bd43824d-95de-4b40-be71-f634b75c47be"),
-                            CreateAt = new DateTime(2021, 2, 21, 22, 8, 50, 133, DateTimeKind.Local).AddTicks(2374),
+                            CreateAt = new DateTime(2021, 2, 21, 22, 6, 56, 208, DateTimeKind.Local).AddTicks(3607),
                             Email = "lucas.vilas@email.com",
                             Name = "Administrador",
                             Password = "123456",
-                            UpdateAt = new DateTime(2021, 2, 21, 22, 8, 50, 134, DateTimeKind.Local).AddTicks(3004)
+                            UpdateAt = new DateTime(2021, 2, 21, 22, 6, 56, 209, DateTimeKind.Local).AddTicks(4294)
                         });
                 });
 #pragma warning restore 612, 618

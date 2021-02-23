@@ -127,6 +127,7 @@ namespace Api.Application.Controllers
 
         }
 
+        [Authorize("Bearer")]
         [HttpGet]
         [Route("{id}")]
         [Authorize("Bearer")]
@@ -147,6 +148,7 @@ namespace Api.Application.Controllers
             }
         }
 
+        [Authorize("Bearer")]
         [HttpGet]
         [Route("ProjectType")]
         public async Task<object> GetProjectType([FromServices] IProjectService service)
@@ -166,5 +168,26 @@ namespace Api.Application.Controllers
             }
         }
 
+        [Authorize("Bearer")]
+        [HttpDelete]
+        public async Task<object> DeleteProject([FromQuery] Guid ID, [FromServices] IProjectService service)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+                else
+                {
+                    var result = await service.DeleteProject(ID);
+                    return Ok(result);
+                }
+            }
+            catch (Exception e)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
+            }
+        }
     }
 }

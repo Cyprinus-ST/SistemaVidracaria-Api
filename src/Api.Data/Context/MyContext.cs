@@ -1,4 +1,5 @@
 ﻿using Api.Data.Mapping;
+using Api.Domain.Entities.Budget;
 using Api.Domain.Entities.Costumer;
 using Api.Domain.Entities.Material;
 using Api.Domain.Entities.Plan;
@@ -26,6 +27,7 @@ namespace Api.Data.Context
             modelBuilder.Entity<ProviderEntity>(new ProviderMap().Configure);
             modelBuilder.Entity<ProjectEntity>(new ProjectMap().Configure);
             modelBuilder.Entity<ProjectTypeEntity>(new ProjectTypeMap().Configure);
+            modelBuilder.Entity<BudgetEntity>(new BudgetMap().Configure);
 
             modelBuilder.Entity<UserEntity>().HasData(
                 new UserEntity

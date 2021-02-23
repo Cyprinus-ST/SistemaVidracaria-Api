@@ -13,5 +13,6 @@ namespace Api.Domain.Interfaces.Services.Project
         object ListProjectFiltered(FilterProjectDTO filter);
         Task<object> GetProject(Guid id);
         Task<object> GetProjectType();
+        Task<object> DeleteProject(Guid id);
     }
 }

@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Api.Domain.DTO.Project;
 using Api.Domain.Entities.Project;
 using Api.Domain.Interfaces.Repository;
+using Api.Domain.Utils;
 
 namespace Api.Service.Services.Project
 {
@@ -15,15 +16,18 @@ namespace Api.Service.Services.Project
     {
 
         public IMapper mapper;
-        public IProjectRepository repository; 
+        public IProjectRepository repository;
+        public IBudgetRepository budgetRepository;
         private IConfiguration configuration { get; }
 
-        public ProjectService(IConfiguration _configuration, IMapper _mapper, IProjectRepository _repository)
+        public ProjectService(IConfiguration _configuration, IMapper _mapper, IProjectRepository _repository, IBudgetRepository _budgetRepository)
         {
             configuration = _configuration;
             mapper = _mapper;
             repository = _repository;
+            budgetRepository = _budgetRepository;
         }
+
         public async Task<object> UploadFile(IFormFile file, Guid idProject, Guid idUser)
         {
             UploadFile up = new UploadFile(configuration);
@@ -83,7 +87,7 @@ namespace Api.Service.Services.Project
 
                 var projectType = await repository.FindProjectType(entity.ProjectType);
 
-                if(projectType == null)
+                if (projectType == null)
                 {
                     throw new Exception("O tipo de projeto não foi encontrado na nossa base de dados!");
                 }
@@ -120,7 +124,7 @@ namespace Api.Service.Services.Project
 
                 if (project == null)
                     throw new Exception("Não foi encontrado esse projeto na nossa base de dados!");
-                
+
                 var entity = mapper.Map<ProjectEntity>(Project);
                 await repository.UpdateAsync(entity);
 
@@ -199,6 +203,41 @@ namespace Api.Service.Services.Project
                 {
                     throw new Exception("Não encontramos tipo de projeto!");
                 }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public async Task<object> DeleteProject(Guid Id)
+        {
+            try
+            {
+                bool budget = await budgetRepository.ExistBudget(Id);
+
+                if (budget == false)
+                {
+                    var result = await repository.DeleteAsync(Id);
+                    if (result)
+                    {
+                        return new
+                        {
+                            valid = true,
+                            message = "Projeto excluído com sucesso!"
+                        };
+                    }
+                    else
+                    {
+                        throw new Exception("Ocorreu um erro ao excluir o Projeto, tente novamente mais tarde!");
+                    }
+                }
+                else
+                {
+                    throw new Exception("Não foi possível excluir o projeto porque ele está vinculado a um ou mais orçamentos!");
+                }
+
             }
             catch (Exception)
             {
