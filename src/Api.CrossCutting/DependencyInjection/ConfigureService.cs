@@ -14,6 +14,8 @@ using Api.Domain.Interfaces.Services.Project;
 using Api.Service.Services.Project;
 using Api.Domain.Interfaces.Services.Payment;
 using Api.Service.Services.Payment;
+using Api.Domain.Interfaces.Services.Costumer;
+using Api.Service.Services.Costumer;
 
 namespace Api.CrossCutting.DependencyInjection
 {
@@ -30,6 +32,7 @@ namespace Api.CrossCutting.DependencyInjection
             serviceCollection.AddTransient<IProviderService, ProviderService>();
             serviceCollection.AddTransient<IProjectService, ProjectService>();
             serviceCollection.AddTransient<IPaymentService, PaymentService>();
+            serviceCollection.AddTransient<ICostumerService, CostumerService>();
         }
     }
 }

@@ -18,7 +18,14 @@ namespace Api.Data.Implementations.Budget
             Budget = context.Set<BudgetEntity>();
         }
 
-        public Task<bool> ExistBudget(Guid idProject)
+        public Task<bool> ExistBudgetWithCostumer(Guid idCostumer)
+        {
+            bool result = Budget.Any(b => b.IdCostumer.Equals(idCostumer));
+
+            return Task.FromResult(result);
+        }
+
+        public Task<bool> ExistBudgetWithProject(Guid idProject)
         {
             bool result = Budget.Any(b => b.IdProject.Equals(idProject));
 

@@ -215,7 +215,7 @@ namespace Api.Service.Services.Project
         {
             try
             {
-                bool budget = await budgetRepository.ExistBudget(Id);
+                bool budget = await budgetRepository.ExistBudgetWithProject(Id);
 
                 if (budget == false)
                 {

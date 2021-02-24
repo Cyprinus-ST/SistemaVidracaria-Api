@@ -9,6 +9,8 @@ using Api.Domain.DTO.Provider;
 using AutoMapper;
 using Api.Domain.Entities.Project;
 using Api.Domain.DTO.Project;
+using Api.Domain.Entities.Costumer;
+using Api.Domain.DTO.Costumer;
 
 namespace Api.CrossCutting.Mappings
 {
@@ -36,6 +38,12 @@ namespace Api.CrossCutting.Mappings
                 .ReverseMap();
 
             CreateMap<ProjectEntity, UpdateProjectInput>()
+                .ReverseMap();
+
+            CreateMap<CostumerEntity, AddCostumerInput>()
+                .ReverseMap();
+
+            CreateMap<CostumerEntity, UpdateCostumerInput>()
                 .ReverseMap();
         }
 
