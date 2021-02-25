@@ -81,5 +81,11 @@ namespace Api.Data.Implementations.Project
                 throw;
             }
         }
+
+        public Task<bool> ExistProject(Guid idProject)
+        {
+            bool result = Project.Any(p => p.Id.Equals(idProject));
+            return Task.FromResult(result);
+        }
     }
 }

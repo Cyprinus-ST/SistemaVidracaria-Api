@@ -20,6 +20,12 @@ namespace Api.Data.Implementations.Costumer
             Costumer = context.Set<CostumerEntity>();
         }
 
+        public Task<bool> ExistCostumer(Guid idCostumer)
+        {
+            bool result = Costumer.Any(c => c.Id.Equals(idCostumer));
+            return Task.FromResult(result);
+        }
+
         public async Task<List<CostumerEntity>> FindByIdUser(Guid IdUser)
         {
             try

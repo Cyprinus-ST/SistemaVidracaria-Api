@@ -11,7 +11,7 @@ namespace Api.Domain.Entities.Budget
         // ID do Cliente
         public Guid IdCostumer;
 
-        public int IdProject;
+        public Guid IdProject;
 
         public double MeterValue;
 

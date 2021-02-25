@@ -8,5 +8,6 @@ namespace Api.Domain.Interfaces.Repository
     public interface ICostumerRepository : IRepository<CostumerEntity>
     {
         Task<List<CostumerEntity>> FindByIdUser(Guid IdUser);
+        Task<bool> ExistCostumer(Guid idCostumer);
     }
 }

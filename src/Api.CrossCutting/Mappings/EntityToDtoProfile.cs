@@ -1,16 +1,18 @@
-﻿using Api.Domain.DTO.Material;
+﻿using Api.Domain.DTO.Budget;
+using Api.Domain.DTO.Costumer;
+using Api.Domain.DTO.Material;
 using Api.Domain.DTO.Plan;
+using Api.Domain.DTO.Project;
+using Api.Domain.DTO.Provider;
 using Api.Domain.DTO.User;
+using Api.Domain.Entities.Budget;
+using Api.Domain.Entities.Costumer;
 using Api.Domain.Entities.Material;
 using Api.Domain.Entities.Plan;
+using Api.Domain.Entities.Project;
 using Api.Domain.Entities.Provider;
 using Api.Domain.Entities.User;
-using Api.Domain.DTO.Provider;
 using AutoMapper;
-using Api.Domain.Entities.Project;
-using Api.Domain.DTO.Project;
-using Api.Domain.Entities.Costumer;
-using Api.Domain.DTO.Costumer;
 
 namespace Api.CrossCutting.Mappings
 {
@@ -44,6 +46,12 @@ namespace Api.CrossCutting.Mappings
                 .ReverseMap();
 
             CreateMap<CostumerEntity, UpdateCostumerInput>()
+                .ReverseMap();
+
+            CreateMap<BudgetEntity, AddBudgetInput>()
+                .ReverseMap();
+
+            CreateMap<BudgetEntity, UpdateBudgetInput>()
                 .ReverseMap();
         }
 
