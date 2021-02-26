@@ -38,5 +38,8 @@ namespace Api.Domain.DTO.Budget
 
         [Range(0, 99999, ErrorMessage = "Desconto não pode ser um valor negativo.")]
         public double Discount { get; set; }
+
+        [Required(ErrorMessage = "Status é um campo obrigatório!")]
+        public string Status { get; set; }
     }
 }

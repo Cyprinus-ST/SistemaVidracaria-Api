@@ -6,24 +6,25 @@ namespace Api.Domain.Entities.Budget
     {
 
         /// Id do vidraceiro dono desse orçamento  
-        public Guid IdUser;
-        
+        public Guid IdUser { get; set; }
+
         // ID do Cliente
-        public Guid IdCostumer;
+        public Guid IdCostumer { get; set; }
 
-        public Guid IdProject;
+        public Guid IdProject { get; set; }
 
-        public double MeterValue;
+        public double MeterValue { get; set; }
 
-        public double HeightValue;
+        public double HeightValue { get; set; }
 
-        public double WidthValue;
+        public double WidthValue { get; set; }
 
-        public string Description;
+        public string Description { get; set; }
 
-        public double Total;
+        public double Total { get; set; }
 
-        public double Discount;
+        public double Discount { get; set; }
 
+        public string Status { get; set; }
     }
 }

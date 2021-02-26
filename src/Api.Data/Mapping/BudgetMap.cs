@@ -24,6 +24,8 @@ namespace Api.Data.Mapping
             builder.Property(b => b.Description)
                 .HasMaxLength(300);
 
+            builder.Property(b => b.Status)
+                .HasMaxLength(15);
         }
     }
 }

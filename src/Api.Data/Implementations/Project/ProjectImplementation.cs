@@ -15,7 +15,7 @@ namespace Api.Data.Implementations.Project
     {
         private DbSet<ProjectEntity> Project;
         private DbSet<ProjectTypeEntity> ProjectType;
-
+        const int NaoSelecionar = 99;
 
         public ProjectImplementation(MyContext context) : base(context)
         {
@@ -35,8 +35,7 @@ namespace Api.Data.Implementations.Project
 
         public List<ProjectEntity> FindProjectFiltered(FilterProjectDTO filter, out int pages)
         {
-            const int NaoSelecionar = 99;
-
+       
             try
             {
 
