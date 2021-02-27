@@ -2,6 +2,7 @@
 
 namespace Api.Domain.DTO.Budget
 {
+   
     public class BudgetCompleteDTO
     {
         #region Usuário

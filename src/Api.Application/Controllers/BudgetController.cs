@@ -12,6 +12,7 @@ namespace Api.Application.Controllers
     [ApiController]
     public class BudgetController : ControllerBase
     {
+
         [Authorize("Bearer")]
         [HttpPost]
         public async Task<object> AddBudget([FromBody] AddBudgetInput Budget, [FromServices] IBudgetService service)
