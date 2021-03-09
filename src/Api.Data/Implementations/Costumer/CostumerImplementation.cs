@@ -30,7 +30,9 @@ namespace Api.Data.Implementations.Costumer
         {
             try
             {
-                List<CostumerEntity> costumers = Costumer.Where(c => c.IdUser.Equals(IdUser)).ToList();
+                List<CostumerEntity> costumers = Costumer.Where(c => c.IdUser.Equals(IdUser))
+                    .OrderBy(c => c.Name)
+                    .ToList();
 
                 return costumers;
             }
