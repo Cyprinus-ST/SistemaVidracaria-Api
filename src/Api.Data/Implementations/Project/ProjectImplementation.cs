@@ -42,6 +42,8 @@ namespace Api.Data.Implementations.Project
                 var query = from p in Project
                             select p;
 
+                query = query.Where(p => p.IdUser == filter.IdUser);
+
                 if (!string.IsNullOrEmpty(filter.Title))
                     query = query.Where(p => p.Title.Contains(filter.Title));
 

@@ -1,4 +1,6 @@
-﻿namespace Api.Domain.DTO.Project
+﻿using System;
+
+namespace Api.Domain.DTO.Project
 {
     public class FilterProjectDTO
     {
@@ -8,6 +10,7 @@
         public int NumberGlass { get; set; }
         public int Page { get; set; }
         public string Title { get; set; }
+        public Guid IdUser { get; set; }
         
     }
 }
