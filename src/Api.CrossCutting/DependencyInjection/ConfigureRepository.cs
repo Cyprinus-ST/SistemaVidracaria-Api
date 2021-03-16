@@ -6,8 +6,10 @@ using Api.Data.Implementations.Material;
 using Api.Data.Implementations.Plan;
 using Api.Data.Implementations.Project;
 using Api.Data.Implementations.Provider;
+using Api.Data.Implementations.Tutorial;
 using Api.Data.Repository;
 using Api.Domain.Interfaces.Repository;
+using Api.Domain.Interfaces.Repository.Tutorial;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -26,6 +28,7 @@ namespace Api.CrossCutting.DependencyInjection
             serviceCollection.AddScoped<IProjectRepository, ProjectImplementation>();
             serviceCollection.AddScoped<IBudgetRepository, BudgetImplementation>();
             serviceCollection.AddScoped<ICostumerRepository, CostumerImplementation>();
+            serviceCollection.AddScoped<ITutorialRepository, TutorialImplementation>();
 
             //serviceCollection.AddDbContext<MyContext>(
             //        options => options.UseSqlServer("Password=x;Persist Security Info=True;User ID=sa;Initial Catalog=db_vidracaria;Data Source=DESKTOP-TI83OVD\\SQLEXPRESS")

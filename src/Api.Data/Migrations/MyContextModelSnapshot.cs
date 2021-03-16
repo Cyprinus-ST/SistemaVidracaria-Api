@@ -15,9 +15,9 @@ namespace Api.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .UseIdentityColumns()
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.1");
+                .HasAnnotation("ProductVersion", "5.0.4")
+                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Api.Domain.Entities.Budget.BudgetEntity", b =>
                 {
@@ -169,12 +169,12 @@ namespace Api.Data.Migrations
                         new
                         {
                             Id = new Guid("2216f112-4c4e-4fdc-b300-eda19d5de4e4"),
-                            CreateAt = new DateTime(2021, 2, 25, 22, 31, 1, 459, DateTimeKind.Local).AddTicks(9377),
+                            CreateAt = new DateTime(2021, 3, 15, 19, 39, 24, 728, DateTimeKind.Local).AddTicks(7422),
                             Description = "Plano Experimental",
                             Installments = 0.0,
                             Name = "Plano Experimental",
                             Status = "Ativo",
-                            UpdateAt = new DateTime(2021, 2, 25, 22, 31, 1, 459, DateTimeKind.Local).AddTicks(9387)
+                            UpdateAt = new DateTime(2021, 3, 15, 19, 39, 24, 728, DateTimeKind.Local).AddTicks(7430)
                         });
                 });
 
@@ -253,7 +253,7 @@ namespace Api.Data.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .UseIdentityColumn();
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Type")
                         .HasColumnType("nvarchar(max)");
@@ -393,6 +393,35 @@ namespace Api.Data.Migrations
                     b.ToTable("Provider");
                 });
 
+            modelBuilder.Entity("Api.Domain.Entities.Tutorial.TutorialEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("CreateAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<DateTime?>("UpdateAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Url")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Tutorial");
+                });
+
             modelBuilder.Entity("Api.Domain.Entities.User.UserEntity", b =>
                 {
                     b.Property<Guid>("Id")
@@ -483,11 +512,11 @@ namespace Api.Data.Migrations
                         new
                         {
                             Id = new Guid("bd43824d-95de-4b40-be71-f634b75c47be"),
-                            CreateAt = new DateTime(2021, 2, 25, 22, 31, 1, 457, DateTimeKind.Local).AddTicks(5437),
+                            CreateAt = new DateTime(2021, 3, 15, 19, 39, 24, 726, DateTimeKind.Local).AddTicks(429),
                             Email = "lucas.vilas@email.com",
                             Name = "Administrador",
                             Password = "123456",
-                            UpdateAt = new DateTime(2021, 2, 25, 22, 31, 1, 458, DateTimeKind.Local).AddTicks(6011)
+                            UpdateAt = new DateTime(2021, 3, 15, 19, 39, 24, 727, DateTimeKind.Local).AddTicks(2817)
                         });
                 });
 #pragma warning restore 612, 618

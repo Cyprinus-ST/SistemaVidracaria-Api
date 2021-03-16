@@ -5,6 +5,7 @@ using Api.Domain.Entities.Material;
 using Api.Domain.Entities.Plan;
 using Api.Domain.Entities.Project;
 using Api.Domain.Entities.Provider;
+using Api.Domain.Entities.Tutorial;
 using Api.Domain.Entities.User;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -28,6 +29,7 @@ namespace Api.Data.Context
             modelBuilder.Entity<ProjectEntity>(new ProjectMap().Configure);
             modelBuilder.Entity<ProjectTypeEntity>(new ProjectTypeMap().Configure);
             modelBuilder.Entity<BudgetEntity>(new BudgetMap().Configure);
+            modelBuilder.Entity<TutorialEntity>(new TutorialMap().Configure);
 
             modelBuilder.Entity<UserEntity>().HasData(
                 new UserEntity

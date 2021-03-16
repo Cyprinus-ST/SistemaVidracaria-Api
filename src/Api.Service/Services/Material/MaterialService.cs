@@ -78,6 +78,7 @@ namespace Api.Service.Services.Material
             }
         }
         
+
         public async Task<object> GetAllMaterial(Guid idUser)
         {
             List<MaterialEntity> listResult = await repository.FindByIdUser(idUser);
