@@ -4,14 +4,16 @@ using Api.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Api.Data.Migrations
 {
     [DbContext(typeof(MyContext))]
-    partial class MyContextModelSnapshot : ModelSnapshot
+    [Migration("20210316011606_RemovendoCamposOrcamento")]
+    partial class RemovendoCamposOrcamento
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -153,12 +155,12 @@ namespace Api.Data.Migrations
                         new
                         {
                             Id = new Guid("2216f112-4c4e-4fdc-b300-eda19d5de4e4"),
-                            CreateAt = new DateTime(2021, 3, 15, 22, 44, 16, 64, DateTimeKind.Local).AddTicks(4034),
+                            CreateAt = new DateTime(2021, 3, 15, 22, 16, 6, 183, DateTimeKind.Local).AddTicks(364),
                             Description = "Plano Experimental",
                             Installments = 0.0,
                             Name = "Plano Experimental",
                             Status = "Ativo",
-                            UpdateAt = new DateTime(2021, 3, 15, 22, 44, 16, 64, DateTimeKind.Local).AddTicks(4044)
+                            UpdateAt = new DateTime(2021, 3, 15, 22, 16, 6, 183, DateTimeKind.Local).AddTicks(372)
                         });
                 });
 
@@ -339,62 +341,6 @@ namespace Api.Data.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Api.Domain.Entities.ProjectBudgetEntity.ProjectBudgetEntity", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("CreateAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("HeightValue")
-                        .HasColumnType("float");
-
-                    b.Property<int>("IdAluminumColor")
-                        .HasColumnType("int");
-
-                    b.Property<Guid>("IdBudget")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("IdGlassColor")
-                        .HasColumnType("int");
-
-                    b.Property<Guid>("IdProject")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("IdStructureColor")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Location")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("MeterValue")
-                        .HasColumnType("float");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
-                    b.Property<double>("Total")
-                        .HasColumnType("float");
-
-                    b.Property<double>("UnitValue")
-                        .HasColumnType("float");
-
-                    b.Property<DateTime?>("UpdateAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<double>("WidthValue")
-                        .HasColumnType("float");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ProjectBudget");
-                });
-
             modelBuilder.Entity("Api.Domain.Entities.Provider.ProviderEntity", b =>
                 {
                     b.Property<Guid>("Id")
@@ -552,11 +498,11 @@ namespace Api.Data.Migrations
                         new
                         {
                             Id = new Guid("bd43824d-95de-4b40-be71-f634b75c47be"),
-                            CreateAt = new DateTime(2021, 3, 15, 22, 44, 16, 61, DateTimeKind.Local).AddTicks(6745),
+                            CreateAt = new DateTime(2021, 3, 15, 22, 16, 6, 180, DateTimeKind.Local).AddTicks(3049),
                             Email = "lucas.vilas@email.com",
                             Name = "Administrador",
                             Password = "123456",
-                            UpdateAt = new DateTime(2021, 3, 15, 22, 44, 16, 62, DateTimeKind.Local).AddTicks(9566)
+                            UpdateAt = new DateTime(2021, 3, 15, 22, 16, 6, 181, DateTimeKind.Local).AddTicks(5980)
                         });
                 });
 #pragma warning restore 612, 618

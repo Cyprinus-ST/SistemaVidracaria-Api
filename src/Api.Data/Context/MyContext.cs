@@ -4,6 +4,7 @@ using Api.Domain.Entities.Costumer;
 using Api.Domain.Entities.Material;
 using Api.Domain.Entities.Plan;
 using Api.Domain.Entities.Project;
+using Api.Domain.Entities.ProjectBudgetEntity;
 using Api.Domain.Entities.Provider;
 using Api.Domain.Entities.Tutorial;
 using Api.Domain.Entities.User;
@@ -30,6 +31,7 @@ namespace Api.Data.Context
             modelBuilder.Entity<ProjectTypeEntity>(new ProjectTypeMap().Configure);
             modelBuilder.Entity<BudgetEntity>(new BudgetMap().Configure);
             modelBuilder.Entity<TutorialEntity>(new TutorialMap().Configure);
+            modelBuilder.Entity<ProjectBudgetEntity>(new ProjectBudgetMap().Configure);
 
             modelBuilder.Entity<UserEntity>().HasData(
                 new UserEntity

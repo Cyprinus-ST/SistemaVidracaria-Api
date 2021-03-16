@@ -171,12 +171,12 @@ namespace Api.Service.Services.Budget
                     throw new Exception("O id de cliente informado não existe na nossa base de dados!");
                 }
 
-                bool validProject = await projectRepository.ExistProject(entity.IdProject);
+                //bool validProject = await projectRepository.ExistProject(entity.IdProject);
 
-                if (validProject == false)
-                {
-                    throw new Exception("O projeto informado não existe na nossa base de dados!");
-                }
+                //if (validProject == false)
+                //{
+                //    throw new Exception("O projeto informado não existe na nossa base de dados!");
+                //}
 
                 var budgetExist = await repository.SelectAsync(entity.Id);
 

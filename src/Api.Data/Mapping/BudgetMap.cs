@@ -15,14 +15,8 @@ namespace Api.Data.Mapping
             builder.Property(b => b.IdCostumer)
                 .IsRequired();
 
-            builder.Property(b => b.IdProject)
-                .IsRequired();
-
             builder.Property(b => b.IdUser)
                 .IsRequired();
-
-            builder.Property(b => b.Description)
-                .HasMaxLength(300);
 
             builder.Property(b => b.Status)
                 .HasMaxLength(15);
