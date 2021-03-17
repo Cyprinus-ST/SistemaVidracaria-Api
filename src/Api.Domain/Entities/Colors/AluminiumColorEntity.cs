@@ -1,6 +1,6 @@
 ﻿namespace Api.Domain.Entities.Colors
 {
-    public class StructureColorEntity
+    public class AluminiumColorEntity
     {
         public int Id { get; set; }
 

@@ -4,14 +4,16 @@ using Api.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Api.Data.Migrations
 {
     [DbContext(typeof(MyContext))]
-    partial class MyContextModelSnapshot : ModelSnapshot
+    [Migration("20210316235106_CadastroDeVidros")]
+    partial class CadastroDeVidros
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -67,58 +69,6 @@ namespace Api.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("AluminiumColor");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Description = "Branco"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Description = "Brilhante"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Description = "Bronze"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Description = "Bronze 1003"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Description = "Champanhe"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Description = "Champanhe 1001"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Description = "Champanhe 1002"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Description = "Cromada"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Description = "Natural"
-                        },
-                        new
-                        {
-                            Id = 10,
-                            Description = "Não Selecionar"
-                        });
                 });
 
             modelBuilder.Entity("Api.Domain.Entities.Colors.GlassColorEntity", b =>
@@ -385,43 +335,6 @@ namespace Api.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("StructureColor");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Description = "Branco"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Description = "Cromado"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Description = "Fosco"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Description = "Marrom"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Description = "Outras"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Description = "Preto"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Description = "Não selecionar"
-                        });
                 });
 
             modelBuilder.Entity("Api.Domain.Entities.Costumer.CostumerEntity", b =>
@@ -525,12 +438,12 @@ namespace Api.Data.Migrations
                         new
                         {
                             Id = new Guid("2216f112-4c4e-4fdc-b300-eda19d5de4e4"),
-                            CreateAt = new DateTime(2021, 3, 17, 20, 46, 14, 219, DateTimeKind.Local).AddTicks(6815),
+                            CreateAt = new DateTime(2021, 3, 16, 20, 51, 6, 378, DateTimeKind.Local).AddTicks(2334),
                             Description = "Plano Experimental",
                             Installments = 0.0,
                             Name = "Plano Experimental",
                             Status = "Ativo",
-                            UpdateAt = new DateTime(2021, 3, 17, 20, 46, 14, 219, DateTimeKind.Local).AddTicks(6823)
+                            UpdateAt = new DateTime(2021, 3, 16, 20, 51, 6, 378, DateTimeKind.Local).AddTicks(2343)
                         });
                 });
 
@@ -924,11 +837,11 @@ namespace Api.Data.Migrations
                         new
                         {
                             Id = new Guid("bd43824d-95de-4b40-be71-f634b75c47be"),
-                            CreateAt = new DateTime(2021, 3, 17, 20, 46, 14, 217, DateTimeKind.Local).AddTicks(2119),
+                            CreateAt = new DateTime(2021, 3, 16, 20, 51, 6, 375, DateTimeKind.Local).AddTicks(7897),
                             Email = "lucas.vilas@email.com",
                             Name = "Administrador",
                             Password = "123456",
-                            UpdateAt = new DateTime(2021, 3, 17, 20, 46, 14, 218, DateTimeKind.Local).AddTicks(2871)
+                            UpdateAt = new DateTime(2021, 3, 16, 20, 51, 6, 376, DateTimeKind.Local).AddTicks(8378)
                         });
                 });
 #pragma warning restore 612, 618
