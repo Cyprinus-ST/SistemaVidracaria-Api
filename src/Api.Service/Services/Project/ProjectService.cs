@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 using Api.Domain.DTO.Project;
 using Api.Domain.Entities.Project;
 using Api.Domain.Interfaces.Repository;
-using Api.Domain.Utils;
 
 namespace Api.Service.Services.Project
 {
@@ -238,6 +237,78 @@ namespace Api.Service.Services.Project
                     throw new Exception("Não foi possível excluir o projeto porque ele está vinculado a um ou mais orçamentos!");
                 }
 
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public async Task<object> GetGlassColor()
+        {
+            try
+            {
+                var result = await repository.GetColorGlassColor();
+                if (result != null)
+                {
+                    return new
+                    {
+                        result
+                    };
+                }
+                else
+                {
+                    throw new Exception("Não encontramos nenhuma cor na nossa base de dados!");
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public async Task<object> GetStructureColor()
+        {
+            try
+            {
+                var result = await repository.GetStructureColor();
+                if (result != null)
+                {
+                    return new
+                    {
+                        result
+                    };
+                }
+                else
+                {
+                    throw new Exception("Não encontramos nenhuma cor na nossa base de dados!");
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public async Task<object> GetAluminiumColor()
+        {
+            try
+            {
+                var result = await repository.GetAluminiumColor();
+                if (result != null)
+                {
+                    return new
+                    {
+                        result
+                    };
+                }
+                else
+                {
+                    throw new Exception("Não encontramos nenhuma cor na nossa base de dados!");
+                }
             }
             catch (Exception)
             {

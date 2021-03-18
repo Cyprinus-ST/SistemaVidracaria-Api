@@ -14,5 +14,8 @@ namespace Api.Domain.Interfaces.Services.Project
         Task<object> GetProject(Guid id);
         Task<object> GetProjectType();
         Task<object> DeleteProject(Guid id);
+        Task<object> GetGlassColor();
+        Task<object> GetStructureColor();
+        Task<object> GetAluminiumColor();
     }
 }

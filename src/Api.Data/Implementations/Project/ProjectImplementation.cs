@@ -1,6 +1,7 @@
 ﻿using Api.Data.Context;
 using Api.Data.Repository;
 using Api.Domain.DTO.Project;
+using Api.Domain.Entities.Colors;
 using Api.Domain.Entities.Project;
 using Api.Domain.Interfaces.Repository;
 using Microsoft.EntityFrameworkCore;
@@ -15,6 +16,9 @@ namespace Api.Data.Implementations.Project
     {
         private DbSet<ProjectEntity> Project;
         private DbSet<ProjectTypeEntity> ProjectType;
+        private DbSet<GlassColorEntity> GlassColor;
+        private DbSet<AluminiumColorEntity> AluminiumColor;
+        private DbSet<StructureColorEntity> StructureColor;
         const int NaoSelecionar = 99;
 
         public ProjectImplementation(MyContext context) : base(context)
@@ -87,6 +91,21 @@ namespace Api.Data.Implementations.Project
         {
             bool result = Project.Any(p => p.Id.Equals(idProject));
             return Task.FromResult(result);
+        }
+
+        public async Task<List<GlassColorEntity>> GetColorGlassColor()
+        {
+            return await GlassColor.ToListAsync();
+        }
+
+        public async Task<List<StructureColorEntity>> GetStructureColor()
+        {
+            return await StructureColor.ToListAsync();
+        }
+
+        public async Task<List<AluminiumColorEntity>> GetAluminiumColor()
+        {
+            return await AluminiumColor.ToListAsync();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Api.Domain.DTO.Project;
+using Api.Domain.Entities.Colors;
 using Api.Domain.Entities.Project;
 using System;
 using System.Collections.Generic;
@@ -12,5 +13,8 @@ namespace Api.Domain.Interfaces.Repository
         Task<ProjectTypeEntity> FindProjectType(int Id);
         List<ProjectEntity> FindProjectFiltered(FilterProjectDTO filter, out int pages);
         Task<bool> ExistProject(Guid idProject);
+        Task<List<GlassColorEntity>> GetColorGlassColor();
+        Task<List<StructureColorEntity>> GetStructureColor();
+        Task<List<AluminiumColorEntity>> GetAluminiumColor();
     }
 }
