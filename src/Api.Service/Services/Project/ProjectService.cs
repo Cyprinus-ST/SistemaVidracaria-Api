@@ -254,7 +254,7 @@ namespace Api.Service.Services.Project
                 {
                     return new
                     {
-                        result
+                        data = result
                     };
                 }
                 else
@@ -278,7 +278,7 @@ namespace Api.Service.Services.Project
                 {
                     return new
                     {
-                        result
+                        data = result
                     };
                 }
                 else
@@ -302,7 +302,7 @@ namespace Api.Service.Services.Project
                 {
                     return new
                     {
-                        result
+                        data = result
                     };
                 }
                 else

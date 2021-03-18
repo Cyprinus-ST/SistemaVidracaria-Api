@@ -25,6 +25,9 @@ namespace Api.Data.Implementations.Project
         {
             Project = context.Set<ProjectEntity>();
             ProjectType = context.Set<ProjectTypeEntity>();
+            GlassColor = context.Set<GlassColorEntity>();
+            AluminiumColor = context.Set<AluminiumColorEntity>();
+            StructureColor = context.Set<StructureColorEntity>();
         }
 
         public async Task<List<ProjectTypeEntity>> ListProjectType()
