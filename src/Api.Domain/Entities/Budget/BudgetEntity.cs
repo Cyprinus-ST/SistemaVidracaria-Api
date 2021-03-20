@@ -9,5 +9,6 @@ namespace Api.Domain.Entities.Budget
         public double Total { get; set; }
         public double Discount { get; set; }
         public string Status { get; set; }
+        
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Api.Data.Constant;
 using Api.Domain.DTO.Budget;
 using Api.Domain.Entities.Budget;
+using Api.Domain.Entities.ProjectBudgetEntity;
 using Api.Domain.Interfaces.Repository;
 using Api.Domain.Interfaces.Services.Budget;
 using AutoMapper;
@@ -31,6 +32,7 @@ namespace Api.Service.Services.Budget
         {
             try
             {
+
                 bool validCostumer = await costumerRepository.ExistCostumer(Budget.IdCostumer);
 
                 if(validCostumer == false)
@@ -38,27 +40,36 @@ namespace Api.Service.Services.Budget
                     throw new Exception("O id de cliente informado não existe na nossa base de dados!");
                 }
 
-                bool validProject = await projectRepository.ExistProject(Budget.IdProject);
-
-                if(validProject == false)
+                BudgetEntity budgetEntity = new BudgetEntity
                 {
-                    throw new Exception("O projeto informado não existe na nossa base de dados!");
-                }
+                    IdCostumer = Budget.IdCostumer,
+                    IdUser = Budget.IdUser,
+                    Total = Budget.Total,
+                };
 
-
-                var entity = mapper.Map<BudgetEntity>(Budget);
-
-                entity.Status = BudgetConst.EmAnalise;
-
-                var result = await repository.InsertAsync(entity);
+                budgetEntity.Status = BudgetConst.EmAnalise;
+                
+                //Cadastrando o orçamento primeiro
+                var result = await repository.InsertAsync(budgetEntity);
 
                 if (result != null)
                 {
-                    return new
-                    {
-                        message = "Orçamento cadastrado com sucesso!"
-                    };
 
+                    foreach(ProjectBudgetDTO p in Budget.Projects)
+                    {
+                        p.IdBudget = result.Id;
+
+                        ProjectBudgetEntity projectBudgetEntity = mapper.Map<ProjectBudgetEntity>(p);
+
+                        var resultProjectBudget = await repository.InsertProjectBudget(projectBudgetEntity);
+
+                    }
+
+                    return new {
+
+                        result = "Orçamento Cadastrado com sucesso!"
+
+                    };
                 }
                 else
                 {
@@ -67,7 +78,7 @@ namespace Api.Service.Services.Budget
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
 

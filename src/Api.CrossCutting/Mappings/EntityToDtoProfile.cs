@@ -11,6 +11,7 @@ using Api.Domain.Entities.Costumer;
 using Api.Domain.Entities.Material;
 using Api.Domain.Entities.Plan;
 using Api.Domain.Entities.Project;
+using Api.Domain.Entities.ProjectBudgetEntity;
 using Api.Domain.Entities.Provider;
 using Api.Domain.Entities.Tutorial;
 using Api.Domain.Entities.User;
@@ -60,6 +61,9 @@ namespace Api.CrossCutting.Mappings
                 .ReverseMap();
 
             CreateMap<TutorialEntity, UpdateTutorialInput>()
+                .ReverseMap();
+
+            CreateMap<ProjectBudgetEntity, ProjectBudgetDTO>()
                 .ReverseMap();
         }
 
