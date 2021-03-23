@@ -245,70 +245,24 @@ namespace Api.Service.Services.Project
             }
         }
 
-        public async Task<object> GetGlassColor()
+        public async Task<object> GetAllColors()
         {
             try
             {
-                var result = await repository.GetColorGlassColor();
-                if (result != null)
+                var GlassColor = await repository.GetColorGlassColor();
+                var StructureColor = await repository.GetStructureColor();
+                var AluminiumColor = await repository.GetAluminiumColor();
+
+                return new
                 {
-                    return new
+                    data = new
                     {
-                        data = result
-                    };
-                }
-                else
-                {
-                    throw new Exception("Não encontramos nenhuma cor na nossa base de dados!");
-                }
-            }
-            catch (Exception)
-            {
+                        GlassColor,
+                        StructureColor,
+                        AluminiumColor
+                    }
+                };
 
-                throw;
-            }
-        }
-
-        public async Task<object> GetStructureColor()
-        {
-            try
-            {
-                var result = await repository.GetStructureColor();
-                if (result != null)
-                {
-                    return new
-                    {
-                        data = result
-                    };
-                }
-                else
-                {
-                    throw new Exception("Não encontramos nenhuma cor na nossa base de dados!");
-                }
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-
-        public async Task<object> GetAluminiumColor()
-        {
-            try
-            {
-                var result = await repository.GetAluminiumColor();
-                if (result != null)
-                {
-                    return new
-                    {
-                        data = result
-                    };
-                }
-                else
-                {
-                    throw new Exception("Não encontramos nenhuma cor na nossa base de dados!");
-                }
             }
             catch (Exception)
             {

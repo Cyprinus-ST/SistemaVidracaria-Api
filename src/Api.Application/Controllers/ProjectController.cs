@@ -170,7 +170,7 @@ namespace Api.Application.Controllers
 
         [Authorize("Bearer")]
         [HttpGet]
-        [Route("GlassColor")]
+        [Route("GetColors")]
         public async Task<object> GetGlassColor([FromServices] IProjectService service)
         {
             if (!ModelState.IsValid)
@@ -180,47 +180,7 @@ namespace Api.Application.Controllers
 
             try
             {
-                return Ok(await service.GetGlassColor());
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e);
-            }
-        }
-
-        [Authorize("Bearer")]
-        [HttpGet]
-        [Route("AluminiumColor")]
-        public async Task<object> GetAluminiumColor([FromServices] IProjectService service)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            try
-            {
-                return Ok(await service.GetAluminiumColor());
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e);
-            }
-        }
-
-        [Authorize("Bearer")]
-        [HttpGet]
-        [Route("StructureColor")]
-        public async Task<object> GetStructureColor([FromServices] IProjectService service)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            try
-            {
-                return Ok(await service.GetStructureColor());
+                return Ok(await service.GetAllColors());
             }
             catch (Exception e)
             {

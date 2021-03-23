@@ -32,6 +32,7 @@ namespace Api.Data.Implementations.Budget
             Costumers = context.Set<CostumerEntity>();
             Project = context.Set<ProjectEntity>();
             User = context.Set<UserEntity>();
+            ProjectBudgetDataBase = context.Set<ProjectBudgetEntity>();
         }
 
         public Task<bool> ExistBudgetWithCostumer(Guid idCostumer)
@@ -43,7 +44,8 @@ namespace Api.Data.Implementations.Budget
 
         public Task<bool> ExistBudgetWithProject(Guid idProject)
         {
-            throw new NotImplementedException();
+            bool result = ProjectBudgetDataBase.Any(b => b.IdProject.Equals(idProject));
+            return Task.FromResult(result);
         }
 
 
